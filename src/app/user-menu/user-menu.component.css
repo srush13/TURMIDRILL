@@ -1,0 +1,158 @@
+mat-icon {
+    vertical-align: text-bottom;
+}
+
+.menu {
+    font-size: 1.5rem;
+}
+
+mat-list-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.pos {
+    position: relative;
+}
+
+.mat-toolbar-fixed {
+    height: 70px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.content {
+    margin-top: 4rem;
+}
+
+
+/* .example-sidenav-content {
+    height: auto;
+    margin: 10px 10px;
+    align-items: center;
+    justify-content: center;
+  } */
+
+.sidenav-content {
+    user-select: none;
+    border: none;
+    background-color: #1e4258;
+    display: block;
+    color: white;
+    width: 15rem;
+    min-width: fit-content;
+    max-width: fit-content;
+}
+
+.sidenav-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.head {
+    color: #1e4258;
+    font-size: xx-large;
+    margin-top: 3px;
+}
+
+.pipe {
+    font-size: 2rem;
+    font-weight: 100;
+    color: gray;
+}
+
+button {
+    outline: none !important;
+    border: none;
+}
+
+.btn {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.float-down {
+    position: absolute;
+    bottom: 1rem;
+}
+
+.float-center {
+    position: absolute;
+    top: 8rem;
+}
+
+mat-list-item,
+.mat-list-item-content {
+    color: white !important;
+    font-size: 1.3rem !important;
+}
+
+.image {
+    width: 2.5rem;
+}
+
+.project {
+    font-size: 2rem
+}
+
+span.toggle {
+    vertical-align: super;
+}
+
+.nav-logo {
+    height: 2.8rem !important;
+}
+
+.list-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: super !important;
+    filter: brightness(0) invert(1);
+}
+
+.tagline {
+    font-size: smaller;
+    color: #194057;
+}
+
+@media only screen and (max-width: 768px) {
+    .mat-toolbar-row,
+    .mat-toolbar-single-row {
+        height: 65px;
+        z-index: 2;
+    }
+    .tagline {
+        font-size: x-small;
+        color: #194057;
+    }
+    .nav-brand {
+        width: 125px;
+    }
+    .sidenav-content {
+        min-width: -webkit-fill-available;
+        max-width: -webkit-fill-available;
+    }
+    .sidenav-container {
+        position: absolute !important;
+        top: 60px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    mat-sidenav-content {
+        background-color: #fafafa;
+        color: rgba(0, 0, 0, .87);
+    }
+    mat-list-item,
+    .mat-list-item-content {
+        color: white !important;
+        font-size: 1rem !important;
+    }
+    .list {
+        margin-left: 3rem;
+    }
+}

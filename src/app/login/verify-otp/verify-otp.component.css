@@ -1,0 +1,26 @@
+.card {
+    width: 30%;
+    margin: 0 38%;
+    text-align: center;
+    position: absolute;
+    top: 35%;
+}
+
+.otp {
+    max-width: 2.6rem !important;
+    height: 2.6rem !important;
+    border: 1px solid darkgray !important;
+    border-radius: 0.2rem;
+}
+
+.enter-otp {
+    text-align: center;
+    font-size: small;
+    color: #1e4258;
+}
+
+h2.primary.text-white {
+    padding: 1rem;
+    position: relative;
+    margin: -1rem;
+}

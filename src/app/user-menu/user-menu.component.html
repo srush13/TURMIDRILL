@@ -1,0 +1,265 @@
+<!-- <div class="statusFreeze flexWrap" *ngIf="statusFreeze">
+    <mat-spinner mode="indeterminate"></mat-spinner><span [innerHTML]="freezeMessage"></span>
+</div> -->
+
+
+<div *ngIf="!loginDetails.status && !loginDetails.loginData && !general.isMobile">
+    <div class="pos">
+        <mat-toolbar class="bg-white font-Source mat-toolbar-fixed">
+            <span>
+            <img class="nav-logo" routerLink="/landing" src="../../assets/images/Turmidrill logo.png" alt="">
+            <!-- <p class="tagline">On demand manufacturing of precision parts</p> -->
+        </span>
+            <div class="ml-md-2">
+                <div class="ml-md-5 mt-3 pointer">
+                    <span routerLink="/landing"><button mat-flat-button class="btn">Home</button></span><span class="pipe">|</span>
+                    <span>
+                    <button [matMenuTriggerFor]="menu" class="btn mb-1">
+                        Capabilities
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item routerLink="/cnc-machining">
+                            <span>CNC Machining</span>
+                    </button>
+                    <button mat-menu-item routerLink="/printing">
+                            <span>3D Printing</span>
+                        </button>
+                    <button mat-menu-item routerLink="/metal-fabrication">
+                            <span>Sheet Metal Fabrication</span>
+                        </button>
+                    <!-- <button mat-menu-item routerLink="/vaccum-casting">
+                            <span>Vaccum Casting</span>
+                        </button> -->
+                    </mat-menu>
+                    </span>
+                    <span class="pipe">|</span>
+                    <span routerLink="/how-it-works"><button mat-flat-button class="btn">How it works</button></span>
+                </div>
+
+            </div>
+            <span style="flex: 1 1 auto;"></span>
+            <div class="pointer mt-2">
+                <span routerLink="/partner"><button mat-flat-button class="btn">Become a partner</button></span>
+                <span routerLink="/login"><button mat-flat-button class="btn">Log in <mat-icon
+                        style="vertical-align: text-bottom;">account_circle</mat-icon></button>
+            </span>
+            </div>
+        </mat-toolbar>
+    </div>
+
+    <div class="content" *ngIf="!loginDetails.status && !loginDetails.loginData">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+
+<div *ngIf="!general.isMobile">
+    <mat-sidenav-container class="sidenav-container" autosize="true" *ngIf="loginDetails.status && loginDetails.loginData">
+        <mat-sidenav #sidenav mode="side" opened class="sidenav-content">
+            <div>
+                <img class="logo" src="../../assets/images/Turmidrill logo.png" alt="">
+                <!-- <p class="tagline text-white">On demand manufacturing of precision parts</p> -->
+            </div>
+            <mat-list class="text-white pointer">
+                <span class="float-center">
+                    <!-- <mat-list-item routerLink="projects" *ngIf="loginDetails.loginData.type == 0">
+                        &nbsp; <span> Projects</span>
+                <span mat-list-icon><img  class="list-icon" src="../../assets/images/project.png" alt=""></span>
+                </mat-list-item> -->
+                <mat-list-item routerLink="dashboard">
+                    &nbsp;<span> Dashboard</span>
+                    <span mat-list-icon><img class="list-icon" src="../../assets/images/order.png" alt=""></span>
+                </mat-list-item>
+                <mat-list-item routerLink="underReview"  *ngIf="loginDetails.loginData.type == 1">
+                    &nbsp;<span> Under review</span>
+                    <span mat-list-icon><img class="list-icon" src="../../assets/images/order.png" alt=""></span>
+                </mat-list-item>
+                <mat-list-item routerLink="active-orders">
+                    &nbsp;<span> Active orders</span>
+                    <span mat-list-icon><img class="list-icon" src="../../assets/images/order.png" alt=""></span>
+                </mat-list-item>
+                <mat-list-item routerLink="past-orders">
+                    &nbsp;<span> Past orders</span>
+                    <span mat-list-icon><img class="list-icon" src="../../assets/images/order.png" alt=""></span>
+                </mat-list-item>
+            
+                <!-- <mat-list-item routerLink="order-history">
+                    &nbsp;<span> Order History</span>
+                    <span mat-list-icon><img class="list-icon" src="../../assets/images/order.png" alt=""></span>
+                </mat-list-item> -->
+                </span>
+                <span class="float-down">
+                    <mat-list-item routerLink="my-account">
+                        &nbsp;  <span>My Account</span>
+                <span mat-list-icon><img  class="list-icon" src="../../assets/images/profile.png" alt=""></span>
+                </mat-list-item>
+                <mat-list-item (click)="login.logout()">
+                    &nbsp; <span> Logout</span>
+                    <span mat-list-icon><img class="list-icon" src="../../assets/images/logout.png" alt=""></span>
+                </mat-list-item>
+                </span>
+            </mat-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div>
+                <mat-toolbar>
+                    <span class="project">{{general.project}}</span>
+                    <span style="flex: 1 1 auto;"></span>
+                    <span *ngIf="loginDetails.loginData.type == 0">
+                <img class="image pointer" src="../../assets/images/cart.png" alt="">
+            </span>
+                    <span *ngIf="loginDetails.loginData.type == 1">
+                <span class="toggle">Online</span>&nbsp;
+                    <mat-slide-toggle color="primary"></mat-slide-toggle>&nbsp;
+                    <span class="toggle"> Offline</span>
+                    </span>
+                </mat-toolbar>
+            </div>
+            <div *ngIf="loginDetails.status && loginDetails.loginData">
+                <router-outlet></router-outlet>
+                <div>
+                    <br>
+                    <div class="timer">
+                        <!-- <span>Your session expires in <b>{{time}}</b></span> -->
+                    </div>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+
+
+<!-- ------------------mobile responsive-------------------- -->
+
+<div *ngIf="!loginDetails.status && !loginDetails.loginData && general.isMobile">
+    <mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon >
+                menu
+            </mat-icon>
+            
+        </button>
+        <span>
+            <img  class="nav-brand" src="../../assets/images/logo.png" alt=""> 
+        </span>
+        <span style="flex: 1 1 auto;"></span>
+        <div class="pointer">
+            <span routerLink="/login"><button mat-icon-button class="btn"><mat-icon
+                        style="vertical-align: text-bottom;">account_circle</mat-icon></button>
+            </span>
+        </div>
+    </mat-toolbar>
+    <mat-sidenav-container autosize="true" class="sidenav-container">
+        <mat-sidenav #sidenav mode="side" class="sidenav-content">
+            <mat-list>
+                <mat-list-item routerLink="/landing" (click)="sidenav.toggle()">Home</mat-list-item>
+                <mat-list-item (click)="showLabel = !showLabel">
+                    Capabilities
+                    <mat-icon class="text-white">keyboard_arrow_down</mat-icon>
+                </mat-list-item>
+
+                <div class="list">
+                    <mat-list-item *ngIf="showLabel" routerLink="/cnc-machining" (click)="sidenav.toggle()">
+                        <span> CNC Machining</span>
+                    </mat-list-item>
+                    <mat-list-item *ngIf="showLabel" routerLink="/printing" (click)="sidenav.toggle()">
+                        <span> 3D Printing</span>
+                    </mat-list-item>
+                    <mat-list-item *ngIf="showLabel" routerLink="/metal-fabrication" (click)="sidenav.toggle()">
+                        <span>Sheet Metal Fabrication</span>
+                    </mat-list-item>
+                </div>
+
+                <mat-list-item routerLink="/how-it-works" (click)="sidenav.toggle()">How It works</mat-list-item>
+                <mat-list-item routerLink="/partner" (click)="sidenav.toggle()">Become a Partner</mat-list-item>
+                <br> <br><br>
+                <span *ngIf="path == '/sign-in' || path =='/apply-for-partner' ">
+                        <form [formGroup]="contact">
+                            <input type="email" class="mail" formControlName="email"
+                                placeholder="Enter your company email address">
+                            <button mat-flat-button class="btn" matPrefix>Contact Us</button>
+                        </form>
+                    </span>
+            </mat-list>
+
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div *ngIf="!loginDetails.status && !loginDetails.loginData">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+<div *ngIf="loginDetails.status && loginDetails.loginData && general.isMobile">
+
+    <mat-sidenav-container class="sidenav-container" autosize="true" *ngIf="loginDetails.status && loginDetails.loginData">
+        <mat-sidenav #sidenav mode="side" class="sidenav-content" (click)="sidenav.toggle()">
+            <div>
+                <img class="logo" src="../../assets/images/logo.png" alt="">
+            </div>
+            <mat-list class="text-white pointer">
+                <span class="float-center">
+                    <mat-list-item routerLink="dashboard">
+                        &nbsp;<span> Dashboard</span>
+                        <span mat-list-icon><img class="list-icon" src="../../assets/images/order.png" alt=""></span>
+                    </mat-list-item>
+                    <mat-list-item routerLink="underReview"  *ngIf="loginDetails.loginData.type == 1">
+                        &nbsp;<span> Under review</span>
+                        <span mat-list-icon><img class="list-icon" src="../../assets/images/order.png" alt=""></span>
+                    </mat-list-item>
+                    <mat-list-item routerLink="active-orders">
+                        &nbsp;<span> Active orders</span>
+                        <span mat-list-icon><img class="list-icon" src="../../assets/images/order.png" alt=""></span>
+                    </mat-list-item>
+                    <mat-list-item routerLink="past-orders">
+                        &nbsp;<span> Past orders</span>
+                        <span mat-list-icon><img class="list-icon" src="../../assets/images/order.png" alt=""></span>
+                    </mat-list-item>
+                </span>
+                <span class="float-down">
+                    <mat-list-item routerLink="my-account" (click)="sidenav.toggle()">
+                        &nbsp;  <span>My Account</span>
+                <span mat-list-icon><img  class="list-icon" src="../../assets/images/profile.png" alt=""></span>
+                </mat-list-item>
+
+                <mat-list-item (click)="login.logout()">
+                    &nbsp; <span> Logout</span>
+                    <span mat-list-icon><img class="list-icon" src="../../assets/images/logout.png" alt=""></span>
+                </mat-list-item>
+                </span>
+            </mat-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <mat-toolbar class="mat-toolbar-fixed">
+                <button mat-icon-button (click)="sidenav.toggle()">
+                        <mat-icon >
+                            menu
+                        </mat-icon>
+                        
+                    </button>
+                <span>
+                        <img  class="nav-brand" src="../../assets/images/logo.png" alt=""> 
+                    </span>
+                <span class="project">{{general.project}}</span>
+                <span style="flex: 1 1 auto;"></span>
+                <span *ngIf="loginDetails.loginData.type == 0">
+                    <img class="image pointer" src="../../assets/images/cart.png" alt="">
+                </span>
+                <!-- <span *ngIf="loginDetails.loginData.type == 1">
+                    <span class="toggle">Online</span>&nbsp;
+                    <mat-slide-toggle color="primary"></mat-slide-toggle>&nbsp;
+                    <span class="toggle"> Offline</span>
+                    </span> -->
+            </mat-toolbar>
+            <div *ngIf="loginDetails.status && loginDetails.loginData">
+                <router-outlet></router-outlet>
+                <div>
+                    <br>
+                    <div class="timer">
+                        <!-- <span>Your session expires in <b>{{time}}</b></span> -->
+                    </div>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

@@ -1,0 +1,264 @@
+<div class="row mx-2">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ml-lg-4 ml-md-4 mt-4">
+        <mat-card *ngFor="let data of underReviewOrder;let i=index;" class="card" (click)="getDetails(data,i)">
+            <h3 class="d-flex justify-content-between">
+                <div>Order {{i+1}}</div>
+                <div class="text-center">
+                    <mat-icon class="align-middle " style="color: #0B9D08; font-size: larger;">fiber_manual_record
+                    </mat-icon>
+                    <span *ngIf="data.orderStatus == 1">UnderReview</span>
+                    <span *ngIf="data.orderStatus == 2">Accepted</span>
+                    <span *ngIf="data.orderStatus == 3">Manufacturing</span>
+                    <span *ngIf="data.orderStatus == 4">Quality Check</span>
+                    <span *ngIf="data.orderStatus == 5">Dispatched</span>
+                    <span *ngIf="data.orderStatus == 6">Delivered</span>
+
+                </div>
+            </h3>
+            <mat-card-content>
+                <div>
+                    Process - {{data.process}} <br>
+                    Quantity - {{data.quantity}} Nos
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 ml-md-2 ml-lg-2 mt-4" *ngIf="!expand  && underReviewOrder.length>0">
+        <mat-card>
+            <div>
+                <h3 class="d-flex justify-content-between">
+                    <div>Order 1</div>
+                    <div class="text-center">
+                        <form>
+                            <mat-form-field apperance="outline">
+                                <mat-select placeholder="status">
+                                    <mat-option *ngFor="let key of general.orderReview;let i=index;" value="key.name"
+                                        (onSelectionChange)="change($event,i+1)">{{key.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </form>
+
+                    </div>
+                </h3>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                        <img src="../../assets/images/3D printing.png" alt="">
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                        File Name <br>
+                        {{underReviewOrder[0]?.file?.fileName.split('.')[0]}}
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                        <mat-icon class="align-middle " style="color: #0B9D08; font-size: larger;">fiber_manual_record
+                        </mat-icon>
+                        <span *ngIf="underReviewOrder[0]?.orderStatus == 1">UnderReview</span>
+                        <span *ngIf="underReviewOrder[0]?.orderStatus == 2">Accepted</span>
+                        <span *ngIf="underReviewOrder[0]?.orderStatus == 3">Manufacturing</span>
+                        <span *ngIf="underReviewOrder[0]?.orderStatus == 4">Quality Check</span>
+                        <span *ngIf="underReviewOrder[0]?.orderStatus == 5">Dispatched</span>
+                        <span *ngIf="underReviewOrder[0]?.orderStatus == 6">Delivered</span>
+
+                    </div>
+                </div>
+                <hr>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>Material</th>
+                            <th>Finish</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{underReviewOrder[0]?.process}}</td>
+                            <td>{{underReviewOrder[0]?.materialCategory.name}}</td>
+                            <td>{{underReviewOrder[0]?.finishing?.name}}</td>
+                            <td>{{underReviewOrder[0]?.quantity}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Placed On</th>
+                            <th>Shipping Address</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{underReviewOrder[0]?.updatedAt | date:'dd-MM-YYYY'}}</td>
+                            <td>{{underReviewOrder[0]?.materialCategory.name}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Dispatch Date</th>
+                            <th>Payment details</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{underReviewOrder[0]?.dispatchTime | date:'dd-MM-YYYY'}}</td>
+                            <td>Payment Mode</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Expected Delivery</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{underReviewOrder[0]?.dispatchTime | date:'dd-MM-YYYY'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{underReviewOrder[0]?.orderValue}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-card>
+    </div>
+    <div class="col-md-7 ml-2" *ngIf="expand">
+        <mat-card>
+            <div>
+                <h3 class="d-flex justify-content-between">
+                    <div>Order {{orderDetail?.i}}</div>
+                    <div class="text-center">
+                        <form>
+                            <mat-form-field apperance="outline">
+                                <mat-select placeholder="status">
+                                    <mat-option *ngFor="let key of general.orderReview;let i=index;" value="key.name"
+                                        (onSelectionChange)="change($event,i+1)">{{key.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </form>
+
+                    </div>
+                </h3>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                        <img src="../../assets/images/3D printing.png" alt="">
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                        File Name <br>
+                        {{orderDetail?.file?.fileName.split('.')[0]}}
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                        <mat-icon class="align-middle " style="color: #0B9D08; font-size: larger;">fiber_manual_record
+                        </mat-icon>
+                        <span *ngIf="orderDetail?.orderStatus == 1">UnderReview</span>
+                        <span *ngIf="orderDetail?.orderStatus == 2">Accepted</span>
+                        <span *ngIf="orderDetail?.orderStatus == 3">Manufacturing</span>
+                        <span *ngIf="orderDetail?.orderStatus == 4">Quality Check</span>
+                        <span *ngIf="orderDetail?.orderStatus == 5">Dispatched</span>
+                        <span *ngIf="orderDetail?.orderStatus == 6">Delivered</span>
+
+                    </div>
+                </div>
+                <hr>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Process</th>
+                            <th>Material</th>
+                            <th>Finish</th>
+                            <th>Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{orderDetail?.process}}</td>
+                            <td>{{orderDetail?.materialCategory.name}}</td>
+                            <td>{{orderDetail?.finishing?.name}}</td>
+                            <td>{{orderDetail?.quantity}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Placed On</th>
+                            <th>Shipping Address</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{orderDetail?.updatedAt | date:'dd-MM-YYYY'}}</td>
+                            <td>{{orderDetail?.materialCategory.name}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Dispatch Date</th>
+                            <th>Payment details</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{orderDetail?.dispatchTime | date:'dd-MM-YYYY'}}</td>
+                            <td>Payment Mode</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Expected Delivery</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{orderDetail?.dispatchTime | date:'dd-MM-YYYY'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{orderDetail?.orderValue}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,236 @@
+<div class="container-fluid">
+    <mat-sidenav-container class="sidenav-container" autosize="true" *ngIf="!general.isMobile">
+        <mat-sidenav #sidenav mode="side" opened class="sidenav-content">
+            <div class="content">
+                <img class="logo" src="../../../../assets/images/logo.png" alt=""><br>
+                <span style="font-size: 1.5rem;" class="text-white-50">On demand manufacturing of precision parts</span>
+                <br> <br><br> <br><br> <br><br> <br><br> <br><br> <br>
+                <span>
+                <form [formGroup]="contact" (ngSubmit)="submitContact(contact.value)">
+                    <input type="email" class="mail" formControlName="email" 
+                        placeholder="Enter your company email address">
+                    <button mat-flat-button class="btn" matPrefix>Contact Us</button>
+                </form>
+            </span>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content class="pl-md-4">
+
+            <mat-card class="w-100 bg-transparent">
+                <div>
+                    <p class="float-right">Already Registered? click here to <a routerLink="/login">Login</a> </p>
+                </div><br>
+                <mat-card-title>Get Started!</mat-card-title><br>
+                <mat-card-content>
+                    <form [formGroup]="partnerForm">
+                        <div class="d-flex w-75">
+                            <mat-form-field class="w-50">
+                                <input matInput type="text" placeholder="First Name" formControlName="firstName" required>
+                                <mat-error>
+                                    Please provide your first name
+                                </mat-error>
+                            </mat-form-field>&nbsp;&nbsp;
+                            <mat-form-field class="w-50">
+                                <input matInput type="text" placeholder="Last Name" formControlName="lastName" required>
+                                <mat-error>
+                                    Please provide your last name
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <mat-form-field class="w-75">
+                            <input matInput type="text" placeholder="Company Name" formControlName="companyName" required>
+                            <mat-error>
+                                Please provide your company name
+                            </mat-error>
+                        </mat-form-field> <br>
+
+                        <mat-form-field class="w-75">
+                            <input matInput type="email" placeholder="Email" formControlName="email" required>
+                            <mat-error>
+                                Please provide a valid email address
+                            </mat-error>
+                        </mat-form-field> <br>
+
+                        <mat-form-field class="w-75">
+                            <input matInput type="password" placeholder="Password" formControlName="password" matInput required>
+                            <mat-error>
+                                Please provide a valid password
+                            </mat-error>
+                        </mat-form-field> <br>
+
+                        <mat-form-field class="w-75">
+                            <mat-label>Machining Capability</mat-label>
+                            <mat-select formControlName="machiningCapability" multiple required (selectionChange)="getMaterialAndFinishing($event.value)">
+                                <mat-option *ngFor="let a of machineCapabilitydata" [value]="a.id">{{a.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div class="d-flex justify-content-start">
+
+                            <mat-form-field class="material">
+                                <mat-label>Materials</mat-label>
+                                <mat-select formControlName="material" multiple required>
+                                    <mat-option *ngFor="let a of materials" [value]="a.id">{{a.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="material ml-2">
+                                <mat-label>Finishings</mat-label>
+                                <mat-select formControlName="finishing" multiple>
+                                    <mat-option *ngFor="let a of finishings" [value]="a.id">{{a.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <mat-form-field class="w-75">
+                            <mat-label>Country</mat-label>
+                            <mat-select formControlName="country" required>
+                                <mat-select-filter [array]="country" (filteredReturn)="filteredList =$event">
+                                </mat-select-filter>
+                                <mat-option *ngFor="let a of filteredList" [value]="a">{{a}}</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                Field required.
+                            </mat-error>
+                        </mat-form-field> <br><br>
+
+
+                        <div class="wrapper intl-phone w-75">
+                            <mat-label style="color: gray;">Contact Number *</mat-label><br>
+                            <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="true"
+                                [selectedCountryISO]="CountryISO.India" [maxLength]="15" [phoneValidation]="true" [separateDialCode]="false" name="mobileNumber" formControlName="mobileNumber" required>
+                            </ngx-intl-tel-input>
+                            <hr class="mob w-100">
+                            <mat-error *ngIf="partnerForm.get('mobileNumber').hasError('required') && partnerForm.get('mobileNumber').touched" class="error">
+                                Please provide valid mobile number
+                            </mat-error>
+                        </div>
+
+                        <mat-form-field class="w-75">
+                            <input matInput type="text" placeholder="Pin code" formControlName="pincode" matInput required>
+                            <mat-error>
+                                Please provide a valid pin code
+                            </mat-error>
+                        </mat-form-field> <br>
+                        <input type="checkbox" value="check" formControlName="policy" required>&nbsp;
+                        <span>I agree to Turmidrill’s Terms and Conditions and Privacy Policy</span>
+
+                        <br><br>
+                        <div style="line-height: 2;">
+                            <button mat-raised-button class="text-white" color="primary" [disabled]="!partnerForm.valid" (click)="submit(partnerForm.value)">Register</button>
+                        </div>
+                        <br>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+    <div *ngIf="general.isMobile">
+        <mat-card class="w-100 bg-transparent">
+            <div>
+                <p class="float-right">Already Registered? click here to <a routerLink="/login">Login</a> </p>
+            </div><br>
+            <mat-card-title>Get Started!</mat-card-title><br>
+            <mat-card-content>
+                <form [formGroup]="partnerForm">
+                    <div class="d-flex w-100">
+                        <mat-form-field class="w-50">
+                            <input matInput type="text" placeholder="First Name" formControlName="firstName" required>
+                            <mat-error>
+                                Please provide your first name
+                            </mat-error>
+                        </mat-form-field>&nbsp;&nbsp;
+                        <mat-form-field class="w-50">
+                            <input matInput type="text" placeholder="Last Name" formControlName="lastName" required>
+                            <mat-error>
+                                Please provide your last name
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field class="w-100">
+                        <input matInput type="text" placeholder="Company Name" formControlName="companyName" required>
+                        <mat-error>
+                            Please provide your company name
+                        </mat-error>
+                    </mat-form-field> <br>
+
+                    <mat-form-field class="w-100">
+                        <input matInput type="email" placeholder="Email" formControlName="email" required>
+                        <mat-error>
+                            Please provide a valid email address
+                        </mat-error>
+                    </mat-form-field> <br>
+
+                    <mat-form-field class="w-100">
+                        <input matInput type="password" placeholder="Password" formControlName="password" matInput required>
+                        <mat-error>
+                            Please provide a valid password
+                        </mat-error>
+                    </mat-form-field> <br>
+
+                    <mat-form-field class="w-100">
+                        <mat-label>Machining Capability</mat-label>
+                        <mat-select formControlName="machiningCapability" multiple required (selectionChange)="getMaterialAndFinishing($event.value)">
+                            <mat-option *ngFor="let a of machineCapabilitydata" [value]="a.id">{{a.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="d-flex justify-content-start w-100">
+
+                        <mat-form-field class="material w-50">
+                            <mat-label>Materials</mat-label>
+                            <mat-select formControlName="material" multiple required>
+                                <mat-option *ngFor="let a of materials" [value]="a.id">{{a.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="material ml-1 w-50">
+                            <mat-label>Finishings</mat-label>
+                            <mat-select formControlName="finishing" multiple>
+                                <mat-option *ngFor="let a of finishings" [value]="a.id">{{a.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field class="w-100">
+                        <mat-label>Country</mat-label>
+                        <mat-select formControlName="country" required>
+                            <mat-select-filter [array]="country" (filteredReturn)="filteredList =$event">
+                            </mat-select-filter>
+                            <mat-option *ngFor="let a of filteredList" [value]="a">{{a}}</mat-option>
+                        </mat-select>
+                        <mat-error>
+                            Field required.
+                        </mat-error>
+                    </mat-form-field> <br><br>
+
+
+                    <div class="wrapper intl-phone w-100">
+                        <mat-label style="color: gray;">Contact Number *</mat-label><br>
+                        <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true" [enablePlaceholder]="true" [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]" [selectFirstCountry]="true"
+                            [selectedCountryISO]="CountryISO.India" [maxLength]="15" [phoneValidation]="true" [separateDialCode]="false" name="mobileNumber" formControlName="mobileNumber" required>
+                        </ngx-intl-tel-input>
+                        <hr class="mob w-100">
+                        <mat-error *ngIf="partnerForm.get('mobileNumber').hasError('required') && partnerForm.get('mobileNumber').touched" class="error">
+                            Please provide valid mobile number
+                        </mat-error>
+                    </div>
+
+                    <mat-form-field class="w-100">
+                        <input matInput type="text" placeholder="Pin code" formControlName="pincode" matInput required>
+                        <mat-error>
+                            Please provide a valid pin code
+                        </mat-error>
+                    </mat-form-field> <br>
+                    <input type="checkbox" value="check" formControlName="policy" required>&nbsp;
+                    <span>I agree to Turmidrill’s Terms and Conditions and Privacy Policy</span>
+
+                    <br><br>
+                    <div style="line-height: 2;">
+                        <button mat-raised-button class="text-white" color="primary" [disabled]="!partnerForm.valid" (click)="submit(partnerForm.value)">Register</button>
+                    </div>
+                    <br>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

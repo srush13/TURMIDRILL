@@ -1,0 +1,46 @@
+.head-cap {
+    font-size: xxx-large;
+}
+
+.card {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    left: 0;
+    right: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+
+/* .card1 {
+    width: 45%;
+} */
+
+.color {
+    color: white;
+    background-color: #1e4258;
+    font-size: large;
+}
+
+.noColor {
+    color: black;
+    background-color: white;
+    font-size: large;
+}
+
+.font-styles {
+    font-size: 19px;
+    font-family: 'Source Sans Pro' !important;
+    font-weight: 400 !important;
+}
+
+.icon {
+    width: 5rem;
+}
+
+@media only screen and (max-width: 768px) {
+    img {
+        width: 100%;
+    }
+}

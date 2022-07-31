@@ -1,0 +1,76 @@
+.mat-card {
+    width: 10rem;
+    height: 12rem;
+    /* position: absolute;
+    left: 0;
+    right: 0; */
+}
+
+.icon-img {
+    width: 7rem;
+    height: 7rem;
+}
+
+.icon {
+    width: 6rem;
+    height: 6rem;
+}
+
+mat-card-content.mat-card-content.block {
+    /* font-size: 17px; */
+    color: rgba(17, 100, 102, 1);
+}
+
+
+/* .icon {
+    width: 6rem;
+    height: 6rem;
+    font-size: 1rem;
+} */
+
+
+/* .img {
+    width: 95%;
+    height: 70%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 6px;
+    margin: auto;
+} */
+
+.no-img {
+    padding-top: 45%;
+}
+
+.edit {
+    position: absolute;
+    right: 0.2rem;
+    top: 0.2rem;
+    font-size: 24px;
+    color: black !important;
+}
+
+
+/* #a9a9a959 */
+
+
+/* .project-card {
+    width: 11rem;
+    min-height: 12rem;
+    background: white;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px darkgray;
+    border-radius: 5px;
+    position: relative;
+    font-weight: 500;
+} */
+
+span.align {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 1rem;
+    font-size: 0.8rem;
+    word-break: break-word;
+}

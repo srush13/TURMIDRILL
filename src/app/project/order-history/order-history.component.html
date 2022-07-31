@@ -1,0 +1,357 @@
+<div class="m-1" *ngIf="!general.isMobile">
+    <mat-card class="mt-3">
+        <mat-card-title class="d-flex justify-content-between">
+            <div>
+                <h3>Order details</h3>
+            </div>
+            <div class="pointer" *ngIf="loginData.type == 0">
+                <span (click)="editableStatus()" *ngIf="!editable" matToolTip="Edit project details"><img  src="../../../assets/images/edit.png" alt=""></span>
+                <span (click)="editableStatus()" *ngIf="editable" matToolTip="Cancel"><button mat-icon-button><mat-icon>clear</mat-icon></button></span>
+                <span (click)="delete(data)" matToolTip="Delete project"><img src="../../../assets/images/delete.png" alt=""></span>
+            </div>
+        </mat-card-title>
+        <mat-card-content>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2 col-xs-2 p-1">
+                        <span *ngIf="project?.fileId;else noFile"><img class="image mt-5" src="{{host+'/getProjectImage/'+project?.fileId}}" alt=""></span>
+                        <ng-template #noFile>
+                            <div [routerLink]="['/project-name']" [queryParams]="{id:project.id}" class="no-img">
+                                <span matTooltip="click here to upload">Please upload file</span>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <!-- <div> -->
+                    <div class="col-md-10 col-sm-10 col-xs-10" [ngClass]="editable ? 'enable':'disable'">
+                        <form [formGroup]="orderHistory" (ngSubmit)="submit(orderHistory.value)">
+                            <div>
+                                <table class="table table-borderless text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>File Name</th>
+                                            <th>Process</th>
+                                            <th>Material</th>
+                                            <th>Finish</th>
+                                            <th>Qty</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <mat-form-field appearance="outline" style="width: 12rem;" class="text-center pointer-events">
+                                                    <input matInput type="text" formControlName="name">
+                                                </mat-form-field>
+                                            </td>
+                                            <td>
+                                                <mat-form-field appearance="outline" style="width: 10rem;" class="text-center" *ngIf="editable">
+                                                    <mat-select formControlName="machiningCapability" (selectionChange)="getOptions($event)">
+                                                        <mat-option *ngFor="let data of machineCapability" [value]="data.id ">
+                                                            {{data.name}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="outline" style="width: 10rem;" class="text-center pointer-events" *ngIf="!editable">
+                                                    <input matInput type="text" formControlName="machiningCapability">
+                                                </mat-form-field>
+                                            </td>
+                                            <td>
+                                                <mat-form-field appearance="outline" style="width: 10rem;" class="text-center" *ngIf="editable">
+                                                    <mat-select formControlName="material">
+                                                        <mat-option *ngFor="let data of materials " [value]="data.id">
+                                                            {{data.name}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="outline" style="width: 10rem;" class="text-center pointer-events" *ngIf="!editable">
+                                                    <input matInput type="text" formControlName="material">
+                                                </mat-form-field>
+                                            </td>
+                                            <td>
+                                                <mat-form-field appearance="outline" style="width: 10rem;" class="text-center" *ngIf="editable">
+                                                    <mat-select formControlName="finishing">
+                                                        <mat-option *ngFor="let data of finishing" [value]="data.id">
+                                                            {{data.name}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="outline" style="width: 10rem;" class="text-center pointer-events" *ngIf="!editable">
+                                                    <input matInput type="text" formControlName="finishing">
+                                                </mat-form-field>
+                                            </td>
+                                            <td>
+                                                <mat-form-field appearance="outline" style="width: 5rem; " class="text-center">
+                                                    <input matInput type="number" min="1" formControlName="quantity">
+                                                </mat-form-field>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="d-flex justify-content-around" style="margin-left: -8rem;">
+                                <div>
+                                    <table class="table table-borderless text-left">
+                                        <tbody>
+                                            <tr>
+                                                <th>Order Placed On</th>
+                                                <td>{{project?.createdAt? (project.createdAt | date : 'dd.MM.yyyy'):'-'}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dispatch Date</th>
+                                                <td>{{project?.dispatchTime? (project.dispatchTime | date : 'dd.MM.yyyy'):'-'}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Expected Delivery</th>
+                                                <td>{{project?.expectedDeliveryTime? (project.expectedDeliveryTime | date : 'dd.MM.yyyy'):'-'}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Order Value</th>
+                                                <td>$10000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div>
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <span>Shipping Address 
+                                                        <sub *ngIf="loginData.type==0"><a href="" >(Add/change)</a></sub>
+                                                        <span>
+                                                            <br>
+                                                            <p>BGM</p>
+                                                        </span>
+                                                    </span>
+                                                    <!-- <mat-form-field appearance="outline " class="text-center ">
+                                                            <mat-label>Shipping Address</mat-label>
+                                                            <textarea matInput formControlName="address "></textarea>
+                                                        </mat-form-field> -->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span>Payment details <br>
+                                                        <a  *ngIf="loginData.type==0" href="">Make Payment</a>
+                                                        <a  *ngIf="loginData.type==1" href="">Payment Made</a>
+                                                    </span>
+                                                    <!-- <mat-form-field appearance="outline " class="text-center ">
+                                                            <mat-label>Shipping Address</mat-label>
+                                                            <textarea matInput formControlName="address "></textarea>
+                                                        </mat-form-field> -->
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center ">
+                                                <td>
+                                                    <button mat-raised-button color="primary" [disabled]="!orderHistory.valid || !project?.fileId" [hidden]="!editable">Submit</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card>
+        <div class="d-flex justify-content-between ">
+            <h3>Order Status</h3>
+            <div class="pointer" *ngIf="loginData.type==1 ">
+                <span (click)="editStatus=true " *ngIf="!editStatus"><img  src="../../../assets/images/edit.png" alt=" "></span>
+                <span (click)="editStatus=false " *ngIf="editStatus"><button mat-icon-button><mat-icon>clear</mat-icon></button></span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <div class="container " *ngFor="let a of general.orderReview;let i=index; " (click)="updateOrderStatus(i+1)">
+                <img class="pin " *ngIf="a.status" src='../../../assets/images/label-blue.png' alt=" ">
+                <img class="pin " *ngIf="!a.status" src='../../../assets/images/label.png' alt=" ">
+                <div class="centered " *ngIf="!a.status" style="color:black ">{{a.name}}</div>
+                <div class="centered " *ngIf="a.status" style="color:white ">{{a.name}}</div>
+            </div>
+        </div>
+    </mat-card>
+
+    <div class="chat" *ngIf="idToPass">
+        <app-chat-box [id]='idToPass'></app-chat-box>
+    </div>
+</div>
+
+
+<!-- ------------------mobile------------------------------ -->
+<div class="conatiner-fluid m-1" *ngIf="general.isMobile">
+    <mat-card class="mt-3">
+        <mat-card-title class="d-flex justify-content-between">
+            <div>
+                <h3>Order details</h3>
+            </div>
+            <div class="pointer" *ngIf="loginData.type == 0">
+                <span (click)="editableStatus()" *ngIf="!editable" matToolTip="Edit project details"><img  src="../../../assets/images/edit.png" alt=""></span>
+                <span (click)="editableStatus()" *ngIf="editable" matToolTip="Cancel"><button mat-icon-button><mat-icon>clear</mat-icon></button></span>
+                <span (click)="delete(data)" matToolTip="Delete project"><img src="../../../assets/images/delete.png" alt=""></span>
+            </div>
+        </mat-card-title>
+        <mat-card-content>
+            <div class="row justify-content-center">
+                <div class="col-xs-2 col-sm-2">
+                    <span *ngIf="project?.fileId;else noFile"><img class="image" src="{{host+'/getProjectImage/'+project?.fileId}}" alt=""></span>
+                    <ng-template #noFile>
+                        <div [routerLink]="['/project-name']" [queryParams]="{id:project.id}" class="no-img">
+                            <span matTooltip="click here to upload">Please upload file</span>
+                        </div>
+                    </ng-template>
+                </div>
+                <div class="col-xs-10 col-sm-10">
+                    <form action="">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>File Name</th>
+                                    <td>
+                                        <mat-form-field appearance="outline" class=" w-100 text-center pointer-events">
+                                            <input matInput type="text" formControlName="name">
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Process</th>
+                                    <td>
+                                        <mat-form-field appearance="outline" class=" w-100 text-center" *ngIf="editable">
+                                            <mat-select formControlName="machiningCapability" (selectionChange)="getOptions($event)">
+                                                <mat-option *ngFor="let data of machineCapability" [value]="data.id ">
+                                                    {{data.name}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" class="w-100 text-center pointer-events" *ngIf="!editable">
+                                            <input matInput type="text" formControlName="machiningCapability">
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Material</th>
+                                    <td>
+                                        <mat-form-field appearance="outline" class="w-100 text-center" *ngIf="editable">
+                                            <mat-select formControlName="material">
+                                                <mat-option *ngFor="let data of materials " [value]="data.id">
+                                                    {{data.name}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" class="w-100 text-center pointer-events" *ngIf="!editable">
+                                            <input matInput type="text" formControlName="material">
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Finish</th>
+                                    <td>
+                                        <mat-form-field appearance="outline" class="w-100 text-center" *ngIf="editable">
+                                            <mat-select formControlName="finishing">
+                                                <mat-option *ngFor="let data of finishing" [value]="data.id">
+                                                    {{data.name}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" class=" w-100 text-center pointer-events" *ngIf="!editable">
+                                            <input matInput type="text" formControlName="finishing">
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Qty</th>
+                                    <td>
+                                        <mat-form-field appearance="outline" class=" w-100 text-center">
+                                            <input matInput type="number" min="1" formControlName="quantity">
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div>
+                            <table class="table table-borderless text-left">
+                                <tbody>
+                                    <tr>
+                                        <th>Order Placed On</th>
+                                        <td>{{project?.createdAt? (project.createdAt | date : 'dd.MM.yyyy'):'-'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Dispatch Date</th>
+                                        <td>{{project?.dispatchTime? (project.dispatchTime | date : 'dd.MM.yyyy'):'-'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Expected Delivery</th>
+                                        <td>{{project?.expectedDeliveryTime? (project.expectedDeliveryTime | date : 'dd.MM.yyyy'):'-'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Order Value</th>
+                                        <td>$10000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <div class="d-flex">
+                                        <tr>
+                                            <td>
+                                                <span>Shipping Address 
+                                                <sub *ngIf="loginData.type==0"><a href="" >(Add/change)</a></sub>
+                                                <span>
+                                                    <br>
+                                                    <p>Tilakwadi 1st gate,BGM,590009</p>
+                                                </span>
+                                                </span>
+                                                <!-- <mat-form-field appearance="outline " class="text-center ">
+                                                    <mat-label>Shipping Address</mat-label>
+                                                    <textarea matInput formControlName="address "></textarea>
+                                                </mat-form-field> -->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Payment details <br>
+                                                <a  *ngIf="loginData.type==0" href="">Make Payment</a>
+                                                <a  *ngIf="loginData.type==1" href="">Payment Made</a>
+                                            </span>
+                                                <!-- <mat-form-field appearance="outline " class="text-center ">
+                                                    <mat-label>Shipping Address</mat-label>
+                                                    <textarea matInput formControlName="address "></textarea>
+                                                </mat-form-field> -->
+                                            </td>
+                                        </tr>
+                                    </div>
+                                    <tr class="text-center ">
+                                        <td>
+                                            <button mat-raised-button color="primary" [disabled]="!orderHistory.valid || !project?.fileId" [hidden]="!editable">Submit</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="mt-2">
+        <div class="d-flex justify-content-between ">
+            <h3>Order Status</h3>
+            <div class="pointer" *ngIf="loginData.type==1 ">
+                <span (click)="editStatus=true " *ngIf="!editStatus"><img  src="../../../assets/images/edit.png" alt=" "></span>
+                <span (click)="editStatus=false " *ngIf="editStatus"><button mat-icon-button><mat-icon>clear</mat-icon></button></span>
+            </div>
+        </div>
+        <div class="container  " *ngFor="let a of general.orderReview;let i=index; " (click)="updateOrderStatus(i+1)">
+            <img class="pin" *ngIf="a.status" src='../../../assets/images/label-blue.png' alt=" ">
+            <img class="pin" *ngIf="!a.status" src='../../../assets/images/label.png' alt=" "><br><br>
+            <div class="centered text-dark" *ngIf="!a.status">{{a.name}}</div>
+            <div class="centered text-white" *ngIf="a.status">{{a.name}}</div>
+        </div>
+    </mat-card>
+    <div class="chat" *ngIf="idToPass">
+        <app-chat-box [id]='idToPass'></app-chat-box>
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+.mat-expansion-panel-header-title {
+    display: block !important;
+}
+
+span.sub {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+img {
+    width: 4rem;
+}
+
+.card {
+    width: 49%;
+}
+
+.icon {
+    font-size: 3rem;
+    width: 38px;
+}
+
+@media only screen and (max-width: 768px) {
+    mat-expansion-panel {
+        width: 100% !important;
+        /* max-width: -webkit-fill-available; */
+    }
+    img {
+        width: 2rem;
+    }
+}

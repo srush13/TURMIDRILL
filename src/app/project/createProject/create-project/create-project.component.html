@@ -1,0 +1,29 @@
+<div class="m-5">
+    <mat-card class="text-center">
+        <mat-card-title>Project Name</mat-card-title><br>
+        <mat-card-content>
+            <form [formGroup]="projectName" (ngSubmit)="onSubmit(projectName.value)">
+                <mat-form-field class="w-100">
+                    <input matInput type="text" placeholder="Enter project name" formControlName="projectName" required> {{projectName.errors?.maxlength}}
+                    <mat-error *ngIf="projectName.get('projectName').hasError('required')">
+                        Please provide project name
+                    </mat-error>
+                    <mat-error *ngIf="projectName.get('projectName').hasError('maxlength')">
+                        Project name can have upto 30 characters.
+                    </mat-error>
+                </mat-form-field> <br>
+
+                <div style="line-height: 2;">
+                    <button class="px-5 text-white" color="primary" mat-raised-button [disabled]="!projectName.valid">Save</button> <br>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div>
+    <app-machine-capability></app-machine-capability>
+</div>
+<div>
+    <app-upload-file></app-upload-file>
+</div>

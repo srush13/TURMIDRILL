@@ -1,0 +1,21 @@
+<div id="getstarted" class="pt-5 pb-5">
+    <h1 style="color:#1e4258 ;" class="font-weight-bold">Get Started</h1>
+    <p>Kick start your next project by uploading a 3D CAD file. Within hours, we'll send you free design
+        <br> analysis and accurate pricing. From there, you can work with our team of applications <br>
+        engineers to bring your product to market.
+    </p>
+
+
+<span class="text-center">
+    <button mat-raised-button class="px-3 py-1 text-white" color="primary" routerLink="/login" style="border-radius:0">Upload your drawing</button>
+</span>
+</div> <br><br>
+<div>
+    <form [formGroup]="contact" (ngSubmit)="submit(contact.value)" class="p-5">
+        <input type="email" formControlName="email" class="btn"
+            placeholder="Enter your company email address">&nbsp;
+        <button mat-flat-button  class="text-white btn px-3" color="primary" matPrefix>Contact Us</button>
+    </form>
+</div>
+
+

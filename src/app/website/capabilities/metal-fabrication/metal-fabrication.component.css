@@ -1,0 +1,70 @@
+.head-cap {
+    font-size: xxx-large;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    line-height: 1.2;
+    position: relative;
+    left: 0;
+    right: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+.subTitle {
+    font-size: 1.5rem;
+    font-family: "Source San pro";
+    font-weight: 600;
+    color: black;
+}
+
+.color {
+    color: white;
+    background-color: #1e4258;
+    font-size: large;
+}
+
+.noColor {
+    color: black;
+    background-color: white;
+    font-size: large;
+}
+
+.icon {
+    width: 6rem;
+}
+
+li {
+    list-style: none;
+}
+
+.font-styles {
+    font-size: 19px;
+    font-family: 'Source Sans Pro' !important;
+    font-weight: 400 !important;
+    line-height: 1.3;
+    padding: 5px;
+}
+
+th {
+    font-size: 22px;
+    font-family: 'Source Sans Pro' !important;
+}
+
+td {
+    vertical-align: baseline !important;
+}
+
+@media only screen and (max-width: 768px) {
+    img {
+        width: 100%;
+    }
+    .card {
+        width: fit-content;
+    }
+    .w-50 {
+        width: 68%!important;
+    }
+}

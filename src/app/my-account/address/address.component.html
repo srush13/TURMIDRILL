@@ -1,0 +1,57 @@
+<br>
+<mat-card>
+    <mat-card-title>Add a new address</mat-card-title>
+    <mat-card-content class="form-content">
+        <form [formGroup]="addressForm" (ngSubmit)="submitAddress(addressForm.value)">
+            <div class="d-flex w-75">
+                <mat-form-field class="w-50">
+                    <input matInput type="text" placeholder="First Name" formControlName="firstName" required>
+                    <mat-error>
+                        Please provide your first name
+                    </mat-error>
+                </mat-form-field>&nbsp;&nbsp;
+                <mat-form-field class="w-50">
+                    <input matInput type="text" placeholder="Last Name" formControlName="lastName" required>
+                    <mat-error>
+                        Please provide your last name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="w-75">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput type="text" formControlName="mobileNumber" required>
+            </mat-form-field><br>
+            <mat-form-field class="w-75">
+                <mat-label>Flat, H.No, Company, Apartment</mat-label>
+                <input matInput type="text" formControlName="flat" required>
+                <mat-error>Field required</mat-error>
+            </mat-form-field><br>
+            <mat-form-field class="w-75">
+                <mat-label>Area, Street</mat-label>
+                <input matInput type="text" formControlName="area" required>
+                <mat-error>Field required</mat-error>
+            </mat-form-field><br>
+            <mat-form-field class="w-75">
+                <mat-label>Landmark</mat-label>
+                <input matInput type="text" formControlName="landmark" required>
+                <mat-error>Field required</mat-error>
+            </mat-form-field><br>
+            <mat-form-field class="w-75">
+                <mat-label>Town , City</mat-label>
+                <input matInput type="text" formControlName="city" required>
+                <mat-error>Field required</mat-error>
+            </mat-form-field><br>
+            <mat-form-field class="w-75">
+                <mat-label>State</mat-label>
+                <input matInput type="text" formControlName="state" required>
+                <mat-error>Field required</mat-error>
+            </mat-form-field><br>
+            <mat-form-field class="w-75" [ngStyle]="{'pointer-events': type == 'billing' ? 'all': 'none'}">
+                <mat-label>PinCode</mat-label>
+                <input matInput type="text" formControlName="pinCode" [required]="type=='billing'">
+                <mat-error>Field required</mat-error>
+            </mat-form-field> <br><br>
+            <button color="primary" mat-raised-button [disabled]="!addressForm.valid">Add Address</button>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,62 @@
+<div class="container-fluid">
+
+    <div class="chat-msg">
+        <mat-card *ngIf="!closeMsg" class=" relative text-white">
+            <mat-card-content class=" px-4 py-2 bg">
+                <div class="closeicon">
+                    <button mat-icon-button (click)="closeMsg = !closeMsg"><mat-icon>clear</mat-icon></button>
+                </div>
+                <div>
+                    {{getTooltip()}}
+                </div>
+
+            </mat-card-content>
+            <div class="triangle">
+
+            </div>
+        </mat-card>
+    </div>
+    <div>
+        <button mat-mini-fab class="chat-btn" color="primary" (click)="openChat = !openChat"><mat-icon class="chat-icon">chat</mat-icon></button>
+        <mat-card class="card" *ngIf="openChat">
+            <div class="chatter d-flex justify-content-between">
+                <div>
+                    <span>Turmidrill</span>
+                </div>
+                <div class="pointer">
+                    <span (click)="openChat=false"><mat-icon>clear</mat-icon></span>
+                </div>
+            </div>
+            <mat-card-content>
+                <div class="scroll">
+                    <ul class="chat w-100" *ngIf="chats?.length;else noMsg;">
+                        <span *ngFor="let msg of chats;let i = index;" class="w-100">
+                    <div class="eg" >
+                        <li [ngClass]="profileData?.type == msg.from ? 'right' : 'left'">{{msg.message}}</li><br>
+                    </div>
+                </span>
+                    </ul>
+                    <ng-template #noMsg>
+                        <div class="no-msg text-center mt-3">
+                            <span>No messages yet</span>
+                        </div>
+                    </ng-template>
+                </div>
+
+                <div class="type-msg">
+                    <form [formGroup]="chatForm">
+                        <div class="d-flex justify-content-between">
+                            <mat-form-field class="w-100" appearance="outline">
+                                <textarea matInput type="text" formControlName="message" rows="0" placeholder="Type message" (keyup.enter)="sendMessage(chatForm.value)"></textarea>
+                                <mat-icon matSuffix style="vertical-align: middle!important;" (click)="sendMessage(chatForm.value)">send</mat-icon>
+                            </mat-form-field>
+                            <!-- <button mat-mini-fab matSuffix class="bg-transparent icon"><mat-icon>send</mat-icon></button> -->
+                        </div>
+                    </form>
+                </div>
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+
+</div>

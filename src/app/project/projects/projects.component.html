@@ -1,0 +1,25 @@
+<div class="d-flex  flex-wrap ml-5 ">
+    <mat-card class="text-center m-4 pointer" routerLink='/project-name'>
+        <!-- <mat-icon class="icon  ml-4">add_circle_outline</mat-icon><br><br> -->
+        <mat-card-content class="block">
+            <img src="../../../assets/images/icon-plus.png" alt="" class="icon"><br><br><br>
+            <span> Create New Project</span>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="text-center m-4 pointer" *ngFor="let data of project" [routerLink]="['/order-history',data.id]">
+        <mat-card-content class="block">
+            <mat-icon class="edit" [routerLink]="['/project-name']" [queryParams]="{id:data.id}" matTooltip="Edit project" matTooltipPosition="below">edit</mat-icon>
+            <span *ngIf="data.fileId;else noFile"><img src="{{host+'/getProjectImage/'+data.fileId}}" alt="" class="icon-img"  matTooltip="Click here to view order history" matTooltipPosition="below"><br><br></span>
+            <ng-template #noFile>
+                <div class="no-img" matTooltip="Click here to view order history" matTooltipPosition="below">No file uploaded</div>
+            </ng-template>
+            <span class="align"> {{data.name}}</span>
+        </mat-card-content>
+    </mat-card>
+</div> <br><br>
+
+
+<!-- <div>
+    <button (click)="intialize()">Intialize</button>
+    <button (click)="send()">Send</button>
+</div> -->

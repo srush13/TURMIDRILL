@@ -1,0 +1,65 @@
+<div class="container-fluid mt-md-5 mt-lg-5 contactUs font-style">
+    <div class="row d-flex justify-content-center ">
+        <div class="mt-md-5 mt-lg-5 contact-title text-center">
+            
+            <h1 class="font-weight-bold">Contact Us</h1>
+            <p>Please fill the form, and we will get in touch shortly!</p>
+        </div>
+       
+    </div> <br>
+
+
+    <div class="row text-center mt-lg-3 mt-md-3 pb-5">
+        
+        <div class="text-left col-xs-6 col-sm-6 col-md-6 mt-2">
+            <mat-list class="list">
+                <mat-list-item>
+                    <mat-icon> location_on</mat-icon>&nbsp;&nbsp;&nbsp;
+                    <span>Viman Nagar, Pune, 411015 - Maharashtra, India</span>
+                </mat-list-item><br>
+                <mat-list-item>
+                    <mat-icon>call</mat-icon>&nbsp;&nbsp;&nbsp;
+                    <span>+91 9146999090</span>
+                </mat-list-item><br>
+                <mat-list-item>
+                   <mat-icon>email</mat-icon>&nbsp;&nbsp;&nbsp;
+                    <span>assist@turmidrill.com</span>
+                </mat-list-item>
+            </mat-list>
+</div>
+            <div class="col-xs-6 col-sm-6 col-md-6 mt-2" style="font-size: 12px">
+                
+        
+                <form [formGroup]="contactForm" (ngSubmit)="submit(contactForm.value)" class="mx-5 pl-4 pt-4 pb-4 text-left">
+                    <h2>Send Message</h2>
+                    <mat-form-field appearance="outline" class="form-width">
+                        <mat-label>Name</mat-label>
+                        <input matInput type="text" formControlName="name">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="form-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email">
+                    </mat-form-field><br>
+                    <mat-form-field appearance="outline" class="form-width">
+                        <mat-label>Message</mat-label>
+                        <textarea matInput formControlName="message" rows="8"></textarea>
+                    </mat-form-field><br>
+                    <button mat-raised-button color="primary" [disabled]="!contactForm.valid">Submit</button>
+                </form>
+            </div>
+            
+            <!--
+            <div class="text-center list">
+                <span class="font-weight-bold">Follow us</span><br>
+                <span>
+                    <img class="socio-icon" src="../../../assets/images/linkedin.png" alt="">&nbsp;&nbsp;&nbsp;
+                    <img class="socio-icon" src="../../../assets/images/facebook.png" alt="">
+                </span>
+            </div>
+            -->
+           
+        
+    </div>
+
+</div>
+<app-footer class="w-100  mt-5" id="getStarted"></app-footer>

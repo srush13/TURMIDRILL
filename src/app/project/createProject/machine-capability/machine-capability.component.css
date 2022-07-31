@@ -1,0 +1,19 @@
+.image {
+    width: 180px;
+}
+
+.align {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 2rem;
+    color: rgba(17, 100, 102, 1);
+}
+
+.mat-card {
+    background: rgba(196, 196, 196, 0.15);
+}
+
+h1 {
+    font-weight: 600;
+}

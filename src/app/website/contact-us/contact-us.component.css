@@ -1,0 +1,52 @@
+.font {
+    font-size: 20px;
+    line-height: 2;
+    margin: 1rem 3rem;
+    font-weight: 300;
+}
+.contactUs{
+    background:linear-gradient(0deg, rgba(1, 38, 59, 0.884), rgba(0, 34, 48, 0.856)), url('../../../assets/images/contactus.jpg');
+    background-size: cover;
+  
+    
+}
+.contact-title{
+    color:white;
+}
+span,mat-icon{
+    color: white;
+}
+form{
+    background-color: white;
+}
+.img {
+    width: 40rem;
+}
+
+.list {
+    margin-left: 5rem !important;
+}
+
+.socio-icon {
+    width: 2rem;
+}
+
+.icon {
+    width: 2.5rem;
+}
+
+.form-width {
+    width: 22rem !important
+}
+
+@media only screen and (max-width: 768px) {
+    .img {
+        width: 100%;
+    }
+    .list {
+        margin-left: 2rem !important;
+    }
+    .form-width {
+        width: 16rem !important
+    }
+}

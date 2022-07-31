@@ -1,0 +1,139 @@
+<div class="conatiner-fluid mt-3 ml-md-5 m-xs-1 m-sm-1">
+    <h1>Your account</h1>
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div class="row">
+                        <div class="col-md-1 col-sm-1 col-xs-1">
+                            <img src="../../assets/images/login.png" alt="">
+                        </div>
+                        <div class="col-md-11 col-sm-11 col-xs-11">
+                            <span class="sub"> Login and Security </span><br>
+                            <span>Edit mobile number</span>
+                        </div>
+                    </div>
+                </mat-panel-title><br>
+                <mat-icon class="icon">add</mat-icon>
+            </mat-expansion-panel-header>
+            <form [formGroup]="customerRegistration" (ngSubmit)="submit(customerRegistration.value)">
+                <div class="d-flex w-75">
+                    <mat-form-field class="w-50">
+                        <input matInput type="text" placeholder="First Name" formControlName="firstName" required>
+                        <mat-error>
+                            Please provide your first name
+                        </mat-error>
+                    </mat-form-field>&nbsp;&nbsp;
+                    <mat-form-field class="w-50">
+                        <input matInput type="text" placeholder="Last Name" formControlName="lastName" required>
+                        <mat-error>
+                            Please provide your last name
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <mat-form-field class="w-75">
+                    <input matInput type="text" placeholder="Company Name" formControlName="companyName" required>
+                    <mat-error>
+                        Please provide your company name
+                    </mat-error>
+                </mat-form-field> <br>
+
+                <mat-form-field class="w-75 pointer-events">
+                    <input matInput type="email" placeholder="Email" formControlName="email" required matTooltip="You cannot edit this field">
+                    <mat-error>
+                        Please provide a valid email address
+                    </mat-error>
+                </mat-form-field> <br>
+
+                <mat-form-field class="w-75">
+                    <input matInput type="text" placeholder="Country" formControlName="country" matInput required>
+                    <mat-error>
+                        Field required.
+                    </mat-error>
+                </mat-form-field> <br>
+
+                <mat-form-field class="w-75">
+                    <input matInput type="text" placeholder="Contact Number" formControlName="mobileNumber" matInput required>
+                    <mat-error>
+                        Please provide a valid contact number
+                    </mat-error>
+                </mat-form-field> <br>
+
+                <mat-form-field class="w-75 pointer-events">
+                    <input matInput type="text" placeholder="Pin code" formControlName="pincode" matInput required>
+                    <mat-error>
+                        Please provide a valid pin code
+                    </mat-error>
+                </mat-form-field> <br>
+
+                <div style="line-height: 2;">
+                    <button color="primary" class="text-white" mat-raised-button [disabled]="!customerRegistration.valid">Register</button> <br>
+                </div>
+                <br>
+
+                <!-- <input type="checkbox" value="check" formControlName="policy" required>&nbsp; -->
+                <!-- <span>I agree to Turmidrill’s Terms and Conditions and Privacy Policy</span> -->
+
+            </form>
+            <br>
+        </mat-expansion-panel> <br><br><br>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img src="../../assets/images/address.png" alt="">
+                        </div>
+                        <div class="col-md-11">
+                            <span class="sub"> Billing and Shipping Address </span><br>
+                            <span>Edit addresses for orders</span>
+                        </div>
+                    </div>
+                </mat-panel-title><br>
+                <mat-icon class="icon">add</mat-icon>
+            </mat-expansion-panel-header> <br>
+            <div class="d-flex justify-content-around">
+                <mat-card class="text-center card">
+                    <mat-card-title>
+                        Billing Address
+                    </mat-card-title><br><br>
+                    <mat-card-content>
+                        <img src="../../assets/images/icon-plus.png" alt="" [routerLink]="['/address']" [queryParams]="{address:'billing'}">
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="text-center card">
+                    <mat-card-title>
+                        Shipping Address
+                    </mat-card-title><br><br>
+                    <mat-card-content>
+                        <img src="../../assets/images/icon-plus.png" alt="" [routerLink]="['/address']" [queryParams]="{address:'shipping'}">
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-expansion-panel> <br><br><br>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img src="../../assets/images/payment.png" alt="">
+                        </div>
+                        <div class="col-md-11">
+                            <span class="sub">  Payment Options </span><br>
+                            <span>Add payment details</span>
+                        </div>
+                    </div>
+                </mat-panel-title><br>
+                <mat-icon class="icon">add</mat-icon>
+            </mat-expansion-panel-header>
+
+            <mat-radio-group color="primary">
+                <!-- <mat-label>Add payment details</mat-label><br> -->
+                <mat-radio-button class="example-radio-button" [value]="0">Add Debit / Credit / ATM Card </mat-radio-button>
+                <br>
+                <mat-radio-button class="example-radio-button" [value]="1">Net Banking</mat-radio-button>
+            </mat-radio-group>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

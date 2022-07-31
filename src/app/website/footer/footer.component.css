@@ -1,0 +1,64 @@
+mat-list-item,
+.mat-list-item-content {
+    color: rgb(252, 252, 252) !important;
+    font-size: 0.5rem;
+    font-weight: 300;
+    
+}
+
+#subscribe{
+    border:1px solid white;
+    border-radius: 0 !important;
+    
+}
+#subscribe:hover{
+    background-color: white;
+    color:#1e4258;
+}
+.logo {
+    
+    width: 10rem;
+    text-align: center;
+}
+
+
+.table thead th {
+    vertical-align: middle;
+    /* border-bottom: 2px solid #dee2e6; */
+}
+
+th {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+}
+
+td {
+    font-size: 18px !important;
+}
+
+.icon {
+    width: 2rem;
+    color:white;
+}
+
+h2,
+h3,
+h4 {
+    font-weight: 400 !important;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 1) !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .icon {
+        width: 1.5rem;
+    }
+    h3 {
+        font-size: small !important;
+    }
+}

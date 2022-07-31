@@ -1,0 +1,69 @@
+.card{
+    border-radius: 20px;
+}
+.card:hover{
+    background-color: #BACEDA;
+}
+img{
+    width: 100%;
+    height: 7rem;
+}
+
+
+ol.progtrckr {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+ol.progtrckr li {
+    display: inline-block;
+    text-align: center;
+    line-height: 3.5em;
+}
+
+ol.progtrckr[data-progtrckr-steps="2"] li { width: 16%; }
+ol.progtrckr[data-progtrckr-steps="3"] li { width: 16%; }
+ol.progtrckr[data-progtrckr-steps="4"] li { width: 16%; }
+ol.progtrckr[data-progtrckr-steps="5"] li { width: 16%; }
+ol.progtrckr[data-progtrckr-steps="6"] li { width: 16%; }
+
+
+ol.progtrckr li.progtrckr-done {
+    color: black;
+    border-bottom: 4px solid #0B9D08;
+}
+ol.progtrckr li.progtrckr-todo {
+    color: silver; 
+    border-bottom: 4px solid silver;
+    
+}
+
+ol.progtrckr li:after {
+    content: "\00a0\00a0";
+}
+ol.progtrckr li:before {
+    position: relative;
+    bottom: -4.5em;
+    float: left;
+    left: 50%;
+    line-height: 0.6em;
+}
+ol.progtrckr li.progtrckr-done:before {
+    content: "";
+    color: white;
+    background-color: #0B9D08;
+    height: 2.2em;
+    width: 2.2em;
+    line-height: 2.2em;
+    border: none;
+    border-radius: 2.2em;
+}
+ol.progtrckr li.progtrckr-todo:before {
+    content: "\039F";
+    color: silver;
+    background-color: white;
+    font-size: 3.2em;
+   bottom: -1.4em;;
+}
+

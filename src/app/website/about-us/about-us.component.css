@@ -1,0 +1,45 @@
+
+
+.aboutheroimg{
+    width:80%;
+}
+
+.mt-5,.mt-md-5{
+
+    margin-top: 8rem !important;
+    
+    }
+
+
+.about-content{
+   
+    color:rgb(102, 102, 102);
+    
+}
+.teamimg{
+    width:100%;
+}
+.para{
+    color:rgb(102, 102, 102);
+}
+.features{
+    background-color: rgb(234, 235, 236);
+}
+.featuredBy{
+    width:50%;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+    img {
+        width: 100%;
+    }
+   
+}
+@media only screen and (min-width: 768px){
+.about-title{
+    font-size: 4rem !important;
+}
+}

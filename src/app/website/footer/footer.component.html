@@ -1,0 +1,139 @@
+<footer class="primary container-fluid">
+    <div class="row text-white text-left">
+        <div class="col-xs-4 col-sm-4 col-md-3">
+            <div class="text-left pt-1">
+                <span routerLink="/landing"> <img class="logo" src="../../../assets/images/Turmidrill logo white.png" alt=""></span> <br>
+               
+            </div>
+
+            <div>
+                <mat-list >
+                    
+                    <mat-list-item routerLink="/contact-us" class="pointer">
+                        <mat-icon>email</mat-icon> &nbsp;&nbsp;&nbsp;
+                        <span>assist@turmidrill.com</span>
+                    </mat-list-item>
+                </mat-list>
+                </div>    
+           <!--
+            <div>
+                <mat-list >
+                    <mat-list-item>
+                        <h2 class="text-white ">CONTACT US</h2>
+                    </mat-list-item>
+                    <mat-list-item routerLink="/contact-us" class="pointer">
+                        <mat-icon>email</mat-icon> &nbsp;&nbsp;&nbsp;
+                        <span>assist@turmidrill.com</span>
+                    </mat-list-item>
+                    <mat-list-item>
+                       <mat-icon>call</mat-icon>&nbsp;&nbsp;&nbsp;
+                        <span>8431056345</span>
+                    </mat-list-item>
+                </mat-list>
+
+            </div>
+           --> 
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 mt-3 ">
+            <mat-list class="pointer">
+                <mat-list-item>
+                    <h2 class="text-white ">COMPANY</h2>
+                </mat-list-item>
+                <mat-list-item routerLink="/about-us"><span>About Us</span></mat-list-item>
+                <mat-list-item><span routerLink='/contact-us'>Contact Us</span></mat-list-item>
+                <!-- <mat-list-item><span routerLink='/contact-us'>Blog</span></mat-list-item> -->
+                <mat-list-item><span routerLink="/contact-us">Careers</span></mat-list-item>
+                <mat-list-item><span routerLink='/contact-us'>Terms and Conditions</span></mat-list-item>
+            </mat-list>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3 mt-3">
+            <mat-list class="pointer">
+                <mat-list-item>
+                    <h2 class="text-white ">CAPABILITIES</h2>
+                </mat-list-item>
+                <mat-list-item routerLink="/cnc-machining"><span>CNC Machining</span></mat-list-item>
+                <mat-list-item routerLink="/printing"><span>3D Printing</span></mat-list-item>
+                <mat-list-item routerLink="/metal-fabrication"><span>Sheet Metal Fabrication</span></mat-list-item>
+
+            </mat-list>
+        </div>
+        <div class=" col-xs-2 col-sm-2 col-md-2 mt-4 ">
+            <h3>Subscribe for more details</h3>
+            <form [formGroup]="subscribeForm" (ngSubmit)="subscribe(subscribeForm.value)">
+                <input type="email" formControlName="email" class="p-2 " placeholder="Enter your company email address"><br><br>
+                <button color="primary" mat-raised-button id="subscribe">Subscribe</button>
+            </form>
+        </div>
+
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-5 col-sm-5 col-md-5">
+            <h3 class="text-white">&copy;2022 StackWorks Labs Private Limited. All rights reserved</h3>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+        </div>
+        <div class="col-xs-5 col-sm-5 col-md-5 text-center">
+            <span>
+                <i class="fa fa-brands fa-linkedin fa-2x icon pointer"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-brands fa-facebook fa-2x icon pointer"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-brands fa-youtube fa-2x icon pointer"> </i>
+            </span>
+        </div>
+       
+    </div>
+
+</footer>
+<!-- <div class="container-fluid">
+        <div class=" row pointer">
+            <div class="col-md-3 text-left">
+                <mat-list>
+                    <mat-list-item routerLink="/landing">
+                        <img class="logo" src="../../../assets/images/logo.png" alt="">
+                    </mat-list-item> <br>
+                    <mat-list-item> Congress Road, Besides Indian Oil Petrol Pump, Hindu Nagar, Tilakwadi Belgaum - 590006 Karnataka.
+                    </mat-list-item><br><br>
+                    <mat-list-item>2021 StackWorks Labs Private Limited <br> All rights reserved</mat-list-item>
+                </mat-list>
+            </div>
+            <div class="col-md-2 mt-3">
+                <mat-list>
+                    <mat-list-item>
+                        <h2 class="text-white text-left">Company</h2>
+                    </mat-list-item>
+                    <mat-list-item routerLink="/about-us"><span>About Us</span></mat-list-item>
+                    <mat-list-item><span routerLink='/contact-us'>Team</span></mat-list-item>
+                    <mat-list-item><span routerLink='/contact-us'>Blog</span></mat-list-item>
+                    <mat-list-item><span routerLink="/contact-us">Careers</span></mat-list-item>
+                    <mat-list-item><span routerLink='/contact-us'>Terms and Conditions</span></mat-list-item>
+                </mat-list>
+            </div>
+            <div class="col-md-2 mt-3 text-left">
+                <mat-list>
+                    <mat-list-item>
+                        <h2 class="text-white">Capabilities</h2>
+                    </mat-list-item>
+                    <mat-list-item routerLink="/cnc-machining"><span>CNC Machining</span></mat-list-item>
+                    <mat-list-item routerLink="/printing"><span>3D Printing</span></mat-list-item>
+                    <mat-list-item routerLink="/capabilities"><span>Injection Moulding</span></mat-list-item>
+                    <mat-list-item routerLink="/capabilities"><span></span>Vaccum Casting</mat-list-item>
+                </mat-list>
+            </div>
+            <div class="col-md-2 mt-3">
+                <mat-list>
+                    <mat-list-item>
+                        <h2 class="text-white text-start">Support</h2>
+                    </mat-list-item>
+                    <mat-list-item><span>FAQs</span></mat-list-item>
+                </mat-list>
+            </div>
+            <div class="col-md-3 mt-3">
+                <mat-list>
+                    <mat-list-item>
+                        <h2 class="text-white" routerLink="/contact-us">Contact us</h2>
+                    </mat-list-item>
+                    <mat-list-item><span>info@turmidrill.com</span></mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+    </div> -->

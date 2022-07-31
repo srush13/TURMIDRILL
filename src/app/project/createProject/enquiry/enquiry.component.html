@@ -1,0 +1,111 @@
+<div class="container-fluid ">
+    <div class="row mt-5">
+        <div class="col-md-6 col-sm-3 col-xs-3">
+            <div class="d-flex" *ngIf="file.fileId">
+                <img src="{{host+'/getProjectImage/'+file?.fileId}}" alt="">
+                <h1 class="ml-md-3">File Name <br> <span class="font-style">{{file.name}}</span></h1>
+
+            </div>
+
+        </div>
+        <div class="col-md-6 col-sm-1 col-xs-1">
+            <h1>Material</h1>
+            <span>{{file.materialCategory!=null?file.materialCategory.name:'' }}</span>
+        </div>
+    </div> <br><br>
+    <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit(enquiryForm.value)">
+        <mat-card>
+            <div class="row mx-md-5">
+                <div class="col-md-8">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th>Select Material</th>
+                                <td>
+                                    <mat-form-field appearance='outline' class="w-50">
+                                        <mat-select formControlName="materialId">
+                                            <mat-option *ngFor="let data of materials" [value]="data.id">
+                                                {{data.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Select Finishing</th>
+                                <td>
+                                    <mat-form-field appearance='outline' class="w-50">
+                                        <mat-select formControlName="finishingId">
+                                            <mat-option *ngFor="let data of finishing" [value]="data.id">
+                                                {{data.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Quantity</th>
+                                <td>
+                                    <mat-form-field appearance='outline' class="w-50 text-center">
+                                        <button type="button" matPrefix mat-icon-button (click)="count(-1)">
+                                            <mat-icon>remove</mat-icon>
+                                        </button>
+                                        <input matInput min="0" type="text" formControlName="quantity">
+                                        <button type="button" matSuffix mat-icon-button (click)="count(1)">
+                                            <mat-icon>add</mat-icon>
+                                        </button>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-4 text-center">
+
+                    <mat-form-field appearance='outline' class="mt-4">
+                        <textarea matInput placeholder="Comment" formControlName="comment"></textarea>
+                    </mat-form-field> <br>
+                </div>
+            </div>
+            <div class="text-center">
+                <button mat-raised-button color="primary" class="save" [disabled]="!enquiryForm.valid">Save</button>
+            </div>
+        </mat-card>
+    </form> <br>
+
+    <mat-card>
+        <mat-card-title>Summary</mat-card-title>
+        <mat-card-content>
+            <table class="table table-borderless text-center table-responsive">
+                <thead>
+                    <th>Quotation</th>
+                    <th>Process</th>
+                    <th>Material</th>
+                    <th>Finish</th>
+                    <th>Qty</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>{{file.machiningCapability!=null?file.machiningCapability.name:''}}</td>
+                        <td>{{file.materialCategory!=null?file.materialCategory.name:'' }}</td>
+                        <td>{{file.finishing!=null?file.finishing.name:''}}</td>
+                        <td>{{file.quantity}}</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-center"><button mat-raised-button color="primary" [disabled]="disable" (click)="enquiry(file)">Submit enquiry</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+</div>

@@ -1,0 +1,132 @@
+.landing-image {
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('../../../assets/images/Lathe.png');
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 542px;
+    width: 100%;
+}
+.mt-5,.mt-md-5{
+
+margin-top:7rem !important;
+
+}
+.para,p{
+    color:rgb(102, 102, 102);
+}
+.content {
+    position: absolute;
+    bottom: 7rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.head-cap {
+    font-size: 58px;
+    line-height: 70px;
+    font-family: 'Lato' !important;
+}
+
+.cap {
+    font-family: 'Source Sans pro';
+    font-weight: 400;
+    line-height: 45px;
+    font-size: 28px;
+    text-align: center;
+}
+
+img.cap-img {
+    width: 14rem;
+}
+
+img.img-cast {
+    width: 10rem;
+}
+
+th {
+    font-size: 24px !important;
+    font-weight: 400 !important;
+}
+
+.sub {
+    position: relative;
+}
+
+
+.title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+}
+
+
+.capabilities{
+    background-color: rgb(234, 235, 236);
+ 
+    
+}
+
+.material {
+    margin-left: 4rem;
+}
+
+.imagesize {
+    width: 90%;
+   
+}
+
+.featuredBy{
+    width:50%;
+}
+.table-responsive {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .material {
+        margin-left: 0rem;
+    }
+    .landing-image {
+        background-size: cover !important;
+        height: 146px;
+    }
+    .cap {
+        font-family: 'Source Sans pro';
+        font-weight: 400;
+        line-height: 0;
+        font-size: 10px;
+        text-align: center;
+    }
+    .head-cap {
+        font-size: 16px;
+        line-height: 0;
+        font-family: 'Lato' !important;
+        text-align: center;
+    }
+    .content {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+    img {
+        width: 50%;
+    }
+    .material {
+        width: 85% !important;
+    }
+    img.cap-img {
+        width: 5rem;
+    }
+    img.img-cast {
+        width: 3rem;
+    }
+    th {
+        font-size: 16px !important;
+        font-weight: 400 !important;
+    }
+}

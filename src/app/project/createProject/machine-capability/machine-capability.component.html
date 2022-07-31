@@ -1,0 +1,23 @@
+<h1 class="mt-5 ml-3">Select Manufacturing Process</h1>
+<div class="d-flex flex-wrap justify-content-around text-center mt-5">
+    <mat-card *ngFor="let data of machineCapabilitydata;let odd=odd;">
+        <span *ngIf="data.isSelected == true" class="float-right">
+            <mat-icon><span class="material-icons text-success">
+                    check_circle_outline
+                </span></mat-icon>
+        </span>
+        <mat-card-content class="p-2 text-center" (click)="isSelected(data)">
+            <div>
+                <span *ngIf="odd">
+                <br><br>
+            </span>
+                <img src="{{host+'/getMachiningCapabilityImage/'+data.fileId}}" alt="" class="pointer image">
+            </div><br><br> <br>
+            <h2 class="align">{{data.name}}</h2>
+            <!-- <mat-card-title class="align">
+                
+            </mat-card-title><br> -->
+
+        </mat-card-content>
+    </mat-card>
+</div>

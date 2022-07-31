@@ -1,0 +1,64 @@
+<div class="container-fluid image">
+    <div class="row text-center">
+        <div class="col-md-6 col-xs-6 col-sm-6">
+            <mat-card class="text-center">
+                <mat-card-title>Partner Login</mat-card-title>
+                <mat-card-content>
+                    <mat-error *ngIf="loginInvalidPartner">
+                        Invalid username or password.
+                    </mat-error>
+                    <form [formGroup]="partnerLogin" (ngSubmit)="onSubmitPartnerLogin(partnerLogin.value)">
+                        <mat-form-field class="w-100" appearance="outline">
+                            <input matInput type="email" placeholder="Email" formControlName="userName" required>
+                            <mat-error>
+                                Please provide a valid email address
+                            </mat-error>
+                        </mat-form-field> <br> <br>
+                        <mat-form-field class="w-100" appearance="outline">
+                            <input matInput [type]="passwordType" placeholder="Password" formControlName="password" matInput required>
+                            <mat-icon matSuffix (click)="hideShowPassword()" class="cursor">{{passwordIcon}}</mat-icon>
+                            <mat-error>
+                                Please provide a valid password
+                            </mat-error>
+                        </mat-form-field> <br>
+                        <div style="line-height: 2;">
+                            <span>Forgot Password? <a href="">click here to reset</a></span><br>
+                            <button class="w-50 text-white" color="primary" mat-raised-button [disabled]="!partnerLogin.valid">Submit</button> <br>
+                            <span>New user? <span><a routerLink="/apply-for-partner">Sign Up</a></span></span>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-6 col-xs-6 col-sm-6">
+            <mat-card class="text-center">
+                <mat-card-title>Customer Login</mat-card-title>
+                <mat-card-content>
+                    <mat-error *ngIf="loginInvalidCust">
+                        Invalid username or password.
+                    </mat-error>
+                    <form [formGroup]="customerLogin" (ngSubmit)="onSubmitCustomerlogin(customerLogin.value)">
+                        <mat-form-field class="w-100" appearance="outline">
+                            <input matInput type="email" placeholder="Email" formControlName="userName" required>
+                            <mat-error>
+                                Please provide a valid email address
+                            </mat-error>
+                        </mat-form-field> <br> <br>
+                        <mat-form-field class="w-100" appearance="outline">
+                            <input matInput [type]="passwordType1" placeholder="Password" formControlName="password" matInput required>
+                            <mat-icon matSuffix (click)="hideShowPassword1()" class="cursor">{{passwordIcon1}}</mat-icon>
+                            <mat-error>
+                                Please provide a valid password
+                            </mat-error>
+                        </mat-form-field> <br>
+                        <div style="line-height: 2;">
+                            <span>Forgot Password? <a href="">click here to reset</a></span>
+                            <button class="w-50 text-white" color="primary" mat-raised-button [disabled]="!customerLogin.valid">Submit</button> <br>
+                            <span>New user? <span><a routerLink="/sign-in">Sign Up</a></span></span>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

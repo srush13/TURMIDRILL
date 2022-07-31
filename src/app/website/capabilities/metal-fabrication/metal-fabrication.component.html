@@ -1,0 +1,272 @@
+<div class="container-fluid text-center">
+    <br>
+    <div class="row flex-wrap-custom">
+        <div class="col-md-5 mt-5">
+            <span class="content text-dark text-end ">
+                <br>
+               <div class="mt-md-5">
+                <h1 class="head">Sheet Metal Fabrication</h1>
+                <h2 class="font-Source">Your online sheet metal cutting and bending <br>service.</h2>
+               </div>
+
+                <button mat-raised-button class="text-white pointer btn-slider" color="primary" routerLink="/login">Get Started</button>
+            </span>
+        </div>
+        <div class="col-md-5">
+            <img src="../../../assets/images/sheet-metal-fabrication.png" alt="">
+        </div>
+    </div>
+    <div class=" d-md-flex justify-content-md-center mt-5">
+        <span>
+            <h1 style="color:#1e4258 ;" class="head font-weight-bold">Advantages of Sheet Metal</h1>
+        </span>
+    </div><br>
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <mat-card class="card text-center">
+                <mat-card-title><img class="icon" src="../../../../assets/images/arrow.png" alt=""></mat-card-title>
+                <h2 class="font-weigth-bold text-dark"> Flexible Options </h2><br><br>
+                <mat-card-content>
+                    <span class="font-styles">
+                        Different functionalities can be accomodiated with sheet metals materials.</span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <mat-card class="card text-center">
+                <mat-card-title><img class="icon" src="../../../../assets/images/bending.png" alt=""></mat-card-title>
+                <h2 class="font-weigth-bold text-dark">Single Prototypes to Large Volumes </h2>
+                <mat-card-content>
+                    <span class="font-styles">
+                        Sheet metal fabrication processes are suitable for prototyping and large-scale production.
+                        </span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <mat-card class="card text-center">
+                <mat-card-title><img class="icon" src="../../../../assets/images/membrane.png" alt=""></mat-card-title>
+                <h2 class="font-weigth-bold text-dark"> Wide Range of Materials</h2><br><br>
+                <mat-card-content>
+                    <span class="font-styles">
+                        Sheet metals can accomodiate vide range of materilas like Aluminium, Stainless Steel, Mild Steel, Brass etc.
+               </span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <mat-card class="card text-center">
+                <mat-card-title><img class="icon" src="../../../../assets/images/spray-gun.png" alt=""></mat-card-title>
+                <h2 class="font-weigth-bold text-dark"> Wide Range of Surface Finishes</h2>
+                <mat-card-content>
+                    <span class="font-styles">
+                        Wide Range of Surface Finishes Surface finishes include powder coating, painting, galvanising, plating, etc
+                </span>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+    </div>
+
+    <div class=" d-md-flex justify-content-md-center mt-5">
+        <span>
+            <h1 style="color:#1e4258 ;" class="head font-weight-bold">Metal Fabrication Processes</h1>
+        </span>
+    </div><br> <br>
+
+    <div class="d-md-flex justify-content-md-around">
+        <div class="col-md-4 col-xs-12 col-sm-12">
+            <button class="w-50" mat-raised-button (click)="getType('Thermal Cutting')" [ngClass]="(type=='Thermal Cutting' || type == '' )?'color': 'noColor'">Thermal Cutting</button> <br><br>
+            <button class="w-50" mat-raised-button (click)="getType('Mechanical Cutting')" [ngClass]="type=='Mechanical Cutting'?'color': 'noColor'">Mechanical Cutting
+            </button> <br><br>
+            <button class="w-50" mat-raised-button (click)="getType('Punching')" [ngClass]="type=='Punching'?'color': 'noColor'">Punching</button> <br><br>
+            <button class="w-50" mat-raised-button (click)="getType('Bending')" [ngClass]="(type=='Bending')?'color': 'noColor'">Bending
+            </button>
+        </div>
+        <div class="col-md-8 text-left mt-3">
+            <div [ngStyle]="{'display': (type == 'Thermal Cutting' || type == '')?'block':'none'}">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding'>
+                        <p class="font-style">
+                            The lasers can be used to cut through all the materials commonly used in industry – including steel, aluminum and stainless steel. The panel thicknesses are currently around 50 millimeters for stainless steel, around 40 millimeters for steel and around
+                            25 millimeters for aluminum. However, this approach is more economical with thin panels well below 20 mm thickness. The range of applications is constantly expanding. They include mechanical and vehicle engineering, the production
+                            of tools or furniture and even architectural covers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="type=='Mechanical Cutting'">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding'>
+                        <p class="font-style">
+                            Die cutting is a fabrication process which employs specialized machines and machine tools to convert stock material by cutting, forming, and shearing it into custom shapes and designs. Both versatile and customizable, the die cutting process is suitable
+                            for a wide range of materials, including metal, plastic, wood, and composites. There are several different types of die cutting processes available today, including flatbed die cutting, rotary die cutting, and digital die cutting,
+                            with each process variant offering its advantages and disadvantages. Mechanical Cutitng is a great and cost-effective method to cut sheets into size whenever complex cuts are not necessary.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="type=='Punching'">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding '>
+                        <p class="font-style">
+                            Punching is a metal fabricating process that removes a scrap slug from the metal workpiece each time a punch enters the punching die. This process leaves a hole in the metal workpiece.
+                        </p>
+                        <p class="text-left font-style">
+                            <span>Characteristics of the punching process include:</span><br>
+                            <span>1. Its ability to produce economical holes in both strip and sheet metal during medium or high production processes.</span><br>
+                            <span>2. The ability to produce holes of varying shapes - quickly.</span><br>
+                        </p>
+                        <p class="font-style"> The punching process forces a steel punch, made of hardened steel, into and through a workpiece. The punch diameter determines the size of the hole created in the workpiece.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="type=='Bending'">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding'>
+                        <p class="font-style">
+                            Bending is one of the most common sheet metal fabrication operations. Also known as press braking, flanging, die bending, folding and edging, this method is used to deform a material to an angular shape.
+                        </p>
+                        <p class="font-style">
+                            This is done through the application of force on a workpiece. The force must exceed the material’s yield strength to achieve a plastic deformation. Only then can you get a lasting result in the form of a bend.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class=" d-md-flex justify-content-md-center mt-5">
+        <span>
+            <h1 style="color:#1e4258 ;" class=" head font-weight-bold">Metal Fabrication Materials</h1>
+        </span>
+    </div>
+
+    <div class="d-md-flex justify-content-md-around mt-5">
+        <div class="col-md-4">
+            <button class="w-50" mat-raised-button (click)="getType2('Aluminium')" [ngClass]="(type2=='Aluminium' || type2 == '' )?'color': 'noColor'">Aluminium</button> <br><br>
+            <button class="w-50" mat-raised-button (click)="getType2('Stainless Steel')" [ngClass]="type2=='Stainless Steel'?'color': 'noColor'">Stainless Steel
+            </button> <br><br>
+            <button class="w-50" mat-raised-button (click)="getType2('Mild Steel')" [ngClass]="type2=='Mild Steel'?'color': 'noColor'">Mild Steel</button> <br><br>
+            <button class="w-50" mat-raised-button (click)="getType2('Cold Rolled Steel')" [ngClass]="(type2=='Cold Rolled Steel')?'color': 'noColor'">Cold Rolled Steel 
+            </button>
+        </div>
+        <div class="col-md-8 text-center mt-3">
+            <div [ngStyle]="{'display': (type2 == 'Aluminium' || type2 == '')?'block':'none'}">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding'>
+                        <p class="font-style">
+                            Aluminium is an extremely versatile metal with a number of advantages, it is recognised for being both lightweight and flexible. It can be cast, melted, formed, machined and extruded meaning that it can be manufactured into a variety of shapes and then
+                            subsequently fabricated to suit a whole variety of uses.
+
+                            <p class="font-style">
+                                Due to its extreme versatility and strength, the use of Aluminium is becoming more popular, especially with the advantages it has to offer
+                            </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="type2=='Stainless Steel'">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding font-style'>
+                        <p>
+                            Stainless steel is an iron alloy, containing a minimum of 10.5% chromium. Although grades such as 304 and 430 are popular grades, the term ‘stainless steel’ covers a wide variety of metals, each enhanced with various alloying elements to give specific
+                            properties such as increased corrosion resistance or improved strength.
+                        </p>
+                        <p>Stainless steel has become very popular due to its relatively low cost, aesthetic appearance, high corrosion resistance and low maintenance </p>
+
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="type2=='Mild Steel'">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding '>
+                        <p class="font-style">
+                            Flexibility is one of the main benefits of Mild Steel over its counterpart steels. Due to the properties of the metal, it can withstand powerful electric currents without distorting the 'make-up' of the material. Not only does this save on material costs,
+                            it also saves money spent on labour and electrical costs with the ideal finished product as per industry standards.
+                        </p>
+                        <p class="font-style">
+                            This metal can be produced in mass with a far reduced cost compared to other steels, making it a prime choice of steel across industries.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="type2=='Cold Rolled Steel'">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding'>
+                        <p class="font-style">
+                            Cold rolled steel is comparatively cheap. As the name suggests, it is rolled at room temperature. Cold rolled steel is only limited to 3 mm thickness but has a nicer surface.
+                            <p class="font-style">
+                                So it works well in applications that require nice smooth finishes. Some examples include home appliances, furniture, lockers and cabinets. Cold rolled steel is also used in larger structures, e.g. steel sheds and garages.
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" d-md-flex justify-content-md-center mt-5">
+        <span>
+            <h1 style="color:#1e4258 ;" class=" head font-weight-bold">Surface Finishes</h1>
+        </span>
+    </div>
+
+    <div class="d-md-flex justify-content-md-around mt-5">
+        <div class="col-md-4">
+            <button class="w-50" mat-raised-button (click)="getType1('Powder Coating')" [ngClass]="(type1=='Powder Coating' || type1 == '' )?'color': 'noColor'">Powder Coating</button> <br><br>
+            <button class="w-50" mat-raised-button (click)="getType1('Anodizing')" [ngClass]="type1=='Anodizing'?'color': 'noColor'">Anodizing
+            </button> <br><br>
+            <button class="w-50" mat-raised-button (click)="getType1('Blasting')" [ngClass]="type1=='Blasting'?'color': 'noColor'">Blasting</button> <br><br>
+            <button class="w-50" mat-raised-button (click)="getType1('As Machined')" [ngClass]="(type1=='As Machined')?'color': 'noColor'">As Machined
+            </button>
+        </div>
+        <div class="col-md-8 text-center mt-3">
+            <div [ngStyle]="{'display': (type1 == 'Powder Coating' || type1 == '')?'block':'none'}">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding'>
+                        <p class="font-style">
+                            Powder coating is a dry finishing process used to apply a dry coating material. The coating material is made up of finely ground particles of resin and pigment for color, along with other additives for specific functions such as gloss or hardness.
+                        </p>
+                        <p class="font-style">
+                            Powder coated finishes resist scratches, corrosion, abrasion, chemicals and detergents, and the process can cut costs, improve efficiency and facilitate compliance with environmental regulations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="type1=='Anodizing'">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding'>
+                        <p class="font-style">
+                            Anodizing is an electrochemical process that converts the metal surface into a decorative, durable, corrosion-resistant, anodic oxide finish. Aluminum is ideally suited to anodizing, although other nonferrous metals, such as magnesium and titanium, also
+                            can be anodized. </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="type1=='Blasting'">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding'>
+                        <p class="font-style">
+                            Blast cleaning, is a surface treatment process widely used in a variety of different industries with many diverse purposes. Abrasive blasting is the process by which an abrasive media is accelerated through a blasting nozzle by means of compressed air.
+                            The abrasive used varies based on the surface treatment required. </p>
+
+                        <p class="font-style">
+                            A media blaster propels abrasive media from an air powered media blast gun. Media blasting is a very efficient way of removing debris from the surface of parts or preparing a surface for painting or other finishes. </p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="type1=='As Machined'">
+                <div class="d-md-flex flex-md-wrap">
+                    <div class='padding'>
+                        <p class="font-style">
+                            This is our standard finish. Parts are machined and deburred, sharp edges are chamfered. </p>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+    <app-get-started class="w-100 text-center mt-5"></app-get-started>
+
+
+</div>
+<app-footer class="text-center mt-md-5" id="getStarted"></app-footer>

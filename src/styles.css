@@ -1,0 +1,188 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body,
+.mat-typography {
+    margin: 0;
+    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+    font-family: 'Source Sans Pro' !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+}
+
+.primary {
+    background-color: #1e4258;
+}
+
+.logo {
+    filter: brightness(0) invert(1);
+    margin: 1rem 1rem;
+    text-align: center;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer-events {
+    pointer-events: none;
+}
+
+button {
+    outline: none !important;
+    border: none;
+    font-family: Roboto !important;
+    font-weight: 400 !important;
+    border-radius:0 !important;
+}
+
+.btn-slider {
+    font-family: Roboto !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    width: 152px !important;
+    height: 50px !important;
+    color: white !important;
+    border-radius:0 !important;
+}
+
+.head,
+h1 {
+    font-size: 35px !important;
+    line-height: 1.4 !important;
+    font-weight: 500 !important;
+    font-family: 'Lato' !important;
+}
+
+.font-Source {
+    font-family: 'Source Sans Pro' !important;
+    font-weight: 400 !important;
+}
+
+.font-lato {
+    font-family: 'Lato' !important;
+    font-weight: 600 !important;
+}
+
+.font-style {
+    font-size: 20px;
+    font-family: 'Source Sans Pro' !important;
+    font-weight: 400 !important;
+}
+
+.mat-expansion-panel-header {
+    height: 100px !important;
+    width: 55rem !important;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 24px;
+    border-radius: inherit;
+    transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+mat-expansion-panel.mat-expansion-panel {
+    width: 55rem !important;
+}
+
+table.mat-table {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.table thead th {
+    vertical-align: middle;
+    /* border-bottom: 2px solid #dee2e6; */
+}
+
+
+/* .mat-sort-header-container {
+    display: flex;
+    color: white;
+    justify-content: center;
+    padding-left: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.mat-header-cell {
+    text-align: center;
+    background-color: orange;
+    font-size: 13px;
+    color: white;
+}
+
+.mat-cell {
+    text-align: center;
+} */
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    position: relative;
+    width: 120px !important;
+    height: 30px !important;
+    flex-shrink: 0;
+    border-radius: 18px !important;
+}
+
+.mat-slide-toggle-bar {
+    position: relative;
+    width: 120px !important;
+    height: 30px !important;
+    flex-shrink: 0;
+    border-radius: 18px !important;
+}
+
+.mat-slide-toggle-thumb {
+    height: 30px !important;
+    width: 60px !important;
+    border-radius: 18px !important;
+    margin-top: 3px;
+    background-color: #1e4258 !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+    transform: translate3d(64px, 0, 0) !important;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.inline-flex-custom {
+    display: inline-flex;
+}
+
+@media only screen and (max-width: 768px) {
+    .btn-slider {
+        font-size: 16px !important;
+        width: 110px !important;
+        height: 40px !important;
+    }
+    .head,
+    h1 {
+        font-size: 20px !important;
+    }
+    .font-style {
+        font-size: 16px !important;
+    }
+    .flex-wrap-custom {
+        flex-wrap: wrap-reverse !important;
+    }
+    button.mat-focus-indicator.w-25.mat-raised-button.mat-button-base {
+        font-size: small;
+        width: 49% !important;
+        margin-top: 1rem;
+    }
+    .flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

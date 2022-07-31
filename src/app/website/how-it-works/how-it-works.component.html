@@ -1,0 +1,91 @@
+<br>
+<h1 class="text-center head">How it works ?</h1><br>
+<p class="font-style text-center">Get access to our wide partner network and get your <br> production started in just 5 simple steps. </p>
+<div class=" container-fluid ">
+    <div class="track" *ngIf="!general.isMobile">
+        <div class="row">
+            <div class="col-md-5 col-xs-5 col-sm-5"></div>
+            <div class="col-md-2 col-xs-2 col-sm-2">
+                <mat-spinner mode="determinate" value="100"></mat-spinner>
+                <div style="position:relative; top: 30px; left: 28px;">
+                    <h1>1</h1>
+                </div><br>
+                <div class="border"> </div>
+            </div>
+            <div class="col-md-3 col-xs-3 col-sm-3 text-center">
+                <img src="../../../assets/images/user.png" alt="">
+                <h1>Create account </h1>
+                <p>Create an account by filling up your details. Dont worry, all your data is safe with us.</p>
+            </div>
+            <div class="col-md-2 col-xs-2 col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-xs-5 col-sm-5 text-center">
+                <img src="../../../assets/images/upload-box.png" alt="">
+                <h1>Upload your design</h1>
+                <p>Upload and submit your design files in the supported format after mentioning all the specifications</p>
+            </div>
+            <div class="col-md-2 col-xs-2 col-sm-2">
+                <mat-spinner mode="determinate" value="100"></mat-spinner>
+                <div style="position:relative; top: 30px; left: 28px;">
+                    <h1>2</h1>
+                </div><br>
+                <div class="border"> </div>
+            </div>
+            <div class="col-md-5col-xs-5 col-sm-5"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-xs-5 col-sm-5"> </div>
+            <div class="col-md-2 col-xs-2 col-sm-2">
+                <mat-spinner mode="determinate" value="100"></mat-spinner>
+                <div style="position:relative; top: 30px; left: 28px;">
+                    <h1>3</h1>
+                </div><br>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-3 col-xs-3 col-sm-3  text-center">
+                <img src="../../../assets/images/validation.png" alt="">
+                <h1>Get Approval</h1>
+                <p>Our team of experts will review the designs and specifications <br> for optimization and notify you accordingly</p>
+            </div>
+            <div class="col-md-2 col-xs-2 col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-xs-5 col-sm-5 text-center">
+                <img src="../../../assets/images/conveyor.png" alt="">
+                <h1>Start Manufacturing</h1>
+                <p>Once approved by you and our experts, we will start with the manufacturing </p>
+            </div>
+            <div class="col-md-2 col-xs-2 col-sm-2">
+                <mat-spinner mode="determinate" value="100"></mat-spinner>
+                <div style="position:relative; top: 30px; left: 28px;">
+                    <h1>4</h1>
+                </div><br>
+                <div class="border"></div>
+            </div>
+            <div class="col-md-5 col-xs-5 col-sm-5 "></div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-xs-5 col-sm-5 "></div>
+            <div class="col-md-2 col-xs-2 col-sm-2">
+                <mat-spinner mode="determinate" value="100"></mat-spinner>
+                <div style="position:relative; top: 30px; left: 28px;">
+                    <h1>5</h1>
+                </div><br>
+                <!-- <div class="border"></div> -->
+            </div>
+            <div class="col-md-3  col-xs-3 col-sm-3  text-center">
+                <img src="../../../assets/images/tracking.png" alt="">
+                <h1>Track Status In Real Time</h1>
+                <p>You can track the status of your project in real time from any remote location as it paases through various production stages</p>
+            </div>
+            <div class="col-md-2 col-xs-2 col-sm-2"></div>
+        </div>
+    </div>
+    <div *ngIf="general.isMobile" class="row center">
+        <img src="../../../assets/images/how-it-works.PNG" alt="">
+    </div>
+    <div class="row text-center">
+        <app-footer class="w-100 text-center mt-5" id="getStarted"></app-footer>
+    </div>
+</div>

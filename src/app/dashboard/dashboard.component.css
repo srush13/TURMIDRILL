@@ -1,0 +1,28 @@
+mat-card.mat-card.mat-focus-indicator {
+    width: 264px;
+    height: 180px;
+}
+.border-red{
+    border:1px solid #E45656;
+    border-radius: 20px;
+    border-bottom-width: 25px;
+}
+.border-blue{
+    border:1px solid #252383;
+    border-radius: 20px;
+    border-bottom-width: 25px;
+}
+.border-militaryGreen{
+    border:1px solid #17550D;
+     border-radius: 20px;
+    border-bottom-width: 25px;
+}
+.border-olive{
+    border:1px solid #6E6C26;
+   
+    border-radius: 20px;
+    border-bottom-width: 25px;
+}
+input{
+    height: 35px;
+}

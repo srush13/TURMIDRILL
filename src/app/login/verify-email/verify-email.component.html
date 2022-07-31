@@ -1,0 +1,17 @@
+<mat-card class="card">
+    <form [formGroup]="verifyEmail" (ngSubmit)="verifyUser(verifyEmail.value)">
+        <h2 class="primary text-white">Enter your email to set new password</h2> <br><br><br>
+        <mat-form-field class="w-100" appearance="outline">
+            <input matInput type="email" placeholder="Email" formControlName="email" required>
+            <mat-error>
+                Please provide a valid email address
+            </mat-error>
+        </mat-form-field> <br>
+
+        <h2 *ngIf="verified">Check your email inbox to reset password</h2>
+
+        <button mat-flat-button color="primary" [disabled]="!verifyEmail.valid">Submit</button>
+
+        <br>
+    </form>
+</mat-card> <br>

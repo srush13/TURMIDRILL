@@ -1,0 +1,75 @@
+.mat-card {
+    position: absolute;
+    left: 5rem;
+    right: 0;
+    top: 3rem;
+    width: 40%;
+}
+
+.sidenav-content {
+    user-select: none;
+    border: none;
+    background-color: #1e4258;
+    display: block;
+    color: white;
+    width: 25rem !important;
+}
+
+.sidenav-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.content {
+    padding-top: 10rem;
+    text-align: center;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.mail {
+    border: 1px solid white !important;
+    border-radius: 0 !important;
+    height: 2.1rem;
+    background: #1e4258 !important;
+    width: 57% !important;
+    color: white !important;
+}
+
+::ng-deep label#dial-code {
+    color: #6d6b6b;
+    padding-top: 9px !important;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+ ::ng-deep input:-internal-autofill-selected {
+    background-color: white !important;
+}
+
+ ::ng-deep input#phone {
+    border: none !important;
+    outline-width: 0 !important;
+}
+
+ ::ng-deep input#phone:focus:hover:visited:active:focus-within:focus-visible {
+    border: none !important;
+    outline-width: 0 !important;
+}
+
+.mob {
+    border: 1px solid #cac6c3 !important;
+    margin-top: 0rem !important;
+    width: 31.7rem !important;
+    margin-left: 0rem !important;
+}
+
+.error {
+    margin-top: -1rem;
+    font-size: smaller;
+}

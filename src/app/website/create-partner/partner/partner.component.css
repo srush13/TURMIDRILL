@@ -1,0 +1,101 @@
+.image {
+    background-image: url('../../../../assets/images/globe.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 585px;
+}
+
+.content {
+    position: absolute;
+    bottom: 5rem;
+    right: 0;
+    left: 0;
+    top: 16rem;
+}
+
+.border {
+    border: 0 solid black !important;
+    background-image: url('../../../../assets/images/vector2.png');
+    background-repeat: no-repeat;
+    height: 25rem;
+}
+
+p {
+    width: 12rem;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-left: 0.8rem;
+}
+
+img.img-icon {
+    width: 9rem;
+    height: 9rem;
+}
+
+img.cap-img {
+    width: 14rem;
+}
+
+img.img-cast {
+    width: 10rem;
+}
+
+.num {
+    margin-right: 12rem;
+    font-size: xx-large;
+}
+
+.card {
+    width: 25rem;
+    border: 0 !important;
+    box-shadow: none !important;
+    text-align: center;
+}
+
+.benefit {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.button {
+    font-size: x-large;
+}
+
+th {
+    font-size: 24px !important;
+    font-weight: 400 !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .content {
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 2rem;
+        bottom: 0;
+    }
+    .image {
+        background-size: cover !important;
+        height: 138px !important;
+    }
+    .card {
+        width: fit-content;
+    }
+    img.cap-img {
+        width: 5rem;
+    }
+    img.img-cast {
+        width: 3rem;
+    }
+    img.img-icon {
+        width: 6rem;
+        height: 6rem;
+    }
+    th {
+        font-size: 16px !important;
+        font-weight: 400 !important;
+    }
+    img {
+        width: 100%;
+    }
+}

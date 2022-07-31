@@ -1,0 +1,14 @@
+<div>
+    <h1 class="mx-5 mt-3">Upload your CAD drawing</h1>
+    <p class="mx-5 mt-3"> All your files are secure and encrypted</p><br><br>
+    <div class="text-center dotted-border" appDnd (fileDropped)="fileChange($event)"><br><br>
+        <img src="../../../../assets/images/upload.png" alt="Upload image"><br><br>
+        <h4>Drag and drop your file or click to upload</h4>
+        <input type="file" #fileDropRef id="fileDropRef" (change)="fileChange($event.target.files)" />
+        <button mat-raised-button color="primary">Upload</button>
+        <div class="d-flex justify-content-center mt-3">
+            <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+        </div>
+        <span *ngIf="project.length">{{project?.file.fileName.split('.')[0]}}</span>
+    </div>
+</div>

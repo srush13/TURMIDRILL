@@ -1,0 +1,59 @@
+<div><br>
+    <div class="d-flex justify-content-around">
+        <mat-card class="border-red">
+            <mat-card-title>Active Orders</mat-card-title>
+            <mat-card-content style="color:#E45656;">
+                <h1>5</h1>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="border-blue">
+            <mat-card-title>Past Orders</mat-card-title>
+            <mat-card-content style="color:#252383;">
+                <h1>5</h1>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="border-militaryGreen">
+            <mat-card-title>Total Orders</mat-card-title>
+            <mat-card-content style="color:#17550D;">
+                <h1>5</h1>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="border-olive">
+            <mat-card-title>Total Order value</mat-card-title>
+            <mat-card-content>
+                <h1 style="color: #6E6C26;">10,51,000</h1>
+            </mat-card-content>
+        </mat-card>
+    </div><br>
+    <div class="ml-3" *ngIf="loginData.type == 1">
+        <input type="text" placeholder="Select Period">&nbsp;<button mat-raised-button color="primary">Apply</button>
+    </div>
+    <br>
+    <div class="d-flex justify-content-around" *ngIf="loginData.type == 1">
+        <div >
+            <!-- <div id="chartContainer" style="height: 300px; width: 500px;"></div> -->
+        </div>
+        <div *ngIf="loginData.type == 1">
+            <div id="chartContainer" style="height: 300px; width: 500px;"></div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="loginData.type == 0">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="d-flex  flex-wrap ml-5 ">
+                <mat-card class="text-center m-4 pointer" routerLink='/project-name'>
+                    <!-- <mat-icon class="icon  ml-4">add_circle_outline</mat-icon><br><br> -->
+                    <mat-card-content class="block">
+                        <img src="../../../assets/images/icon-plus.png" alt="" class="icon"><br><br><br>
+                        <span> Create New Project</span>
+                    </mat-card-content>
+                </mat-card>
+             
+            </div> <br><br>
+            
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+        </div>
+    </div>
+</div>

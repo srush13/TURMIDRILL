@@ -1,0 +1,31 @@
+mat-card.mat-card.mat-focus-indicator {
+    width: 60%;
+    margin: 8rem 8rem;
+    background-color: #ffffff4a;
+}
+
+.image {
+    background-image: url('.././../../assets/images/bg-login.png');
+    /* background-size: 100% 100%; */
+    background-repeat: no-repeat;
+    height: 657px;
+}
+
+
+/* .row{
+    margin: 25% 45%;
+} */
+
+@media only screen and (max-width: 768px) {
+    .image {
+        background-position: center !important;
+        background-size: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    mat-card.mat-card.mat-focus-indicator {
+        width: 100%;
+        margin: 2rem auto;
+        background-color: #ffffff4a;
+    }
+}
