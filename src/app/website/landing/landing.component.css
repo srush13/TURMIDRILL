@@ -88,16 +88,19 @@ th {
     .material {
         margin-left: 0rem;
     }
-   
+    .landing-image{
+        background-size: cover !important;
+       background-position: center center;
+    }
     .cap {
         font-family: 'Source Sans pro';
         font-weight: 400;
         
-        font-size:25px;
+        font-size:20px;
         text-align: center;
     }
     .head-cap {
-        font-size: 40px;
+        font-size: 35px;
         
         font-family: 'Lato' !important;
         text-align: center;
